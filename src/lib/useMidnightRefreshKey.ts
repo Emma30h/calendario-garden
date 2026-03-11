@@ -23,7 +23,7 @@ export function useMidnightRefreshKey() {
   const [refreshKey, setRefreshKey] = useState(0);
 
   useEffect(() => {
-    let timeoutId: ReturnType<typeof setTimeout> | null = null;
+    let timeoutId: number | null = null;
 
     const scheduleNextTick = () => {
       timeoutId = window.setTimeout(() => {
@@ -35,7 +35,7 @@ export function useMidnightRefreshKey() {
     scheduleNextTick();
 
     return () => {
-      if (timeoutId) {
+      if (timeoutId !== null) {
         window.clearTimeout(timeoutId);
       }
     };
