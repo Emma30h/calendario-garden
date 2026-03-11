@@ -1,0 +1,11 @@
+export const AUTH_COOKIE_NAME = "cg_session";
+export const AUTH_CLIENT_MODE_RETURN_COOKIE_NAME = "cg_admin_return_session";
+export const AUTH_SESSION_TTL_SECONDS = 60 * 60 * 24 * 7;
+export const AUTH_PASSWORD_SALT_ROUNDS = 12;
+export const AUTH_LOGIN_WINDOW_MINUTES = 10;
+export const AUTH_LOGIN_MAX_ATTEMPTS = 5;
+export const AUTH_OTP_TTL_MINUTES = 10;
+export const AUTH_OTP_MAX_ATTEMPTS = 5;
+export const AUTH_OTP_RESEND_COOLDOWN_SECONDS = 60;
+export const AUTH_OTP_WINDOW_MINUTES = 60;
+export const AUTH_OTP_WINDOW_MAX_SENDS = 5;

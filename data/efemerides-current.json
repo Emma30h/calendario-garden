@@ -1,0 +1,617 @@
+{
+  "sourceName": "EFEMÉRIDES RECTIFICADAS PARA RED POLICIAL - MARZO 2026.docx.pdf",
+  "month": 3,
+  "year": 2026,
+  "importedAt": "2026-03-04T01:56:49.209Z",
+  "events": [
+    {
+      "id": "2026-3-1-0",
+      "year": 2026,
+      "month": 3,
+      "day": 1,
+      "type": "cumpleanos",
+      "title": "CUMPLEAÑOS DEL COMISARIO INSPECTOR LICENCIADO MARIO JESÚS BRITOS"
+    },
+    {
+      "id": "2026-3-1-1",
+      "year": 2026,
+      "month": 3,
+      "day": 1,
+      "type": "aniversario",
+      "title": "ANIVERSARIO DEL DEPARTAMENTO DE UNIDADES DE ALTO RIESGO (DUAR)"
+    },
+    {
+      "id": "2026-3-2-2",
+      "year": 2026,
+      "month": 3,
+      "day": 2,
+      "type": "cumpleanos",
+      "title": "CUMPLEAÑOS DEL COMISARIO INSPECTOR LICENCIADO FERNANDO DANIEL BAIGORRIA"
+    },
+    {
+      "id": "2026-3-3-3",
+      "year": 2026,
+      "month": 3,
+      "day": 3,
+      "type": "cumpleanos",
+      "title": "CUMPLEAÑOS DEL COMISARIO MAYOR ABOGADO LICENCIADO MARTÍN ÁNGEL ANICETO"
+    },
+    {
+      "id": "2026-3-4-4",
+      "year": 2026,
+      "month": 3,
+      "day": 4,
+      "type": "cumpleanos",
+      "title": "CUMPLEAÑOS DEL COMISARIO MAYOR LICENCIADO DOMINGO ARMANDO BELTRÁN"
+    },
+    {
+      "id": "2026-3-4-5",
+      "year": 2026,
+      "month": 3,
+      "day": 4,
+      "type": "dia",
+      "title": "DÍA DEL HERMANO"
+    },
+    {
+      "id": "2026-3-4-6",
+      "year": 2026,
+      "month": 3,
+      "day": 4,
+      "type": "dia",
+      "title": "DÍA MUNDIAL CONTRA LA OBESIDAD"
+    },
+    {
+      "id": "2026-3-5-7",
+      "year": 2026,
+      "month": 3,
+      "day": 5,
+      "type": "cumpleanos",
+      "title": "CUMPLEAÑOS DEL COMISARIO INSPECTOR LICENCIADO MIGUEL GONZALO SILVA"
+    },
+    {
+      "id": "2026-3-5-8",
+      "year": 2026,
+      "month": 3,
+      "day": 5,
+      "type": "cumpleanos",
+      "title": "CUMPLEAÑOS DE LA COMISARIO INSPECTOR LICENCIADA ANDREA SOLEDAD VALDEZ"
+    },
+    {
+      "id": "2026-3-6-9",
+      "year": 2026,
+      "month": 3,
+      "day": 6,
+      "type": "aniversario",
+      "title": "ANIVERSARIO DE LA POLICÍA DE LA PROVINCIA DE ENTRE RÍOS"
+    },
+    {
+      "id": "2026-3-7-10",
+      "year": 2026,
+      "month": 3,
+      "day": 7,
+      "type": "cumpleanos",
+      "title": "CUMPLEAÑOS DEL COMISARIO INSPECTOR LICENCIADO ROQUE LUCIANO RIVERO"
+    },
+    {
+      "id": "2026-3-7-11",
+      "year": 2026,
+      "month": 3,
+      "day": 7,
+      "type": "dia",
+      "title": "DÍA MUNDIAL DEL CAMPO"
+    },
+    {
+      "id": "2026-3-8-12",
+      "year": 2026,
+      "month": 3,
+      "day": 8,
+      "type": "cumpleanos",
+      "title": "CUMPLEAÑOS DEL COMISARIO INSPECTOR LICENCIADO GABRIEL ANTONIO VILLAVERDE (EN USO DE LICENCIA POR RETIRO VOLUNTARIO)"
+    },
+    {
+      "id": "2026-3-8-13",
+      "year": 2026,
+      "month": 3,
+      "day": 8,
+      "type": "dia",
+      "title": "DÍA INTERNACIONAL DE LA MUJER"
+    },
+    {
+      "id": "2026-3-9-14",
+      "year": 2026,
+      "month": 3,
+      "day": 9,
+      "type": "sin_novedad",
+      "title": "SIN NOVEDAD"
+    },
+    {
+      "id": "2026-3-10-15",
+      "year": 2026,
+      "month": 3,
+      "day": 10,
+      "type": "cumpleanos",
+      "title": "CUMPLEAÑOS DEL COMISARIO INSPECTOR LICENCIADO MARCELO ALEJANDRO HAEDO"
+    },
+    {
+      "id": "2026-3-11-16",
+      "year": 2026,
+      "month": 3,
+      "day": 11,
+      "type": "aniversario",
+      "title": "ANIVERSARIO DE LA DIRECCIÓN ENTRENAMIENTO POLICIAL PERMANENTE (DEPP)"
+    },
+    {
+      "id": "2026-3-11-17",
+      "year": 2026,
+      "month": 3,
+      "day": 11,
+      "type": "aniversario",
+      "title": "ANIVERSARIO DE LA DIVISIÓN COORDINACIÓN CAPITAL - INTERIOR (DEPP)"
+    },
+    {
+      "id": "2026-3-11-18",
+      "year": 2026,
+      "month": 3,
+      "day": 11,
+      "type": "aniversario",
+      "title": "ANIVERSARIO DEL DEPARTAMENTO COORDINACIÓN ACADÉMICA (DEPP)"
+    },
+    {
+      "id": "2026-3-12-19",
+      "year": 2026,
+      "month": 3,
+      "day": 12,
+      "type": "dia",
+      "title": "DÍA DEL ESCUDO NACIONAL"
+    },
+    {
+      "id": "2026-3-13-20",
+      "year": 2026,
+      "month": 3,
+      "day": 13,
+      "type": "sin_novedad",
+      "title": "SIN NOVEDAD"
+    },
+    {
+      "id": "2026-3-14-21",
+      "year": 2026,
+      "month": 3,
+      "day": 14,
+      "type": "cumpleanos",
+      "title": "CUMPLEAÑOS DEL COMISARIO GENERAL ABOGADO LICENCIADO ALBERTO RODOLFO HUGO BIETTI"
+    },
+    {
+      "id": "2026-3-14-22",
+      "year": 2026,
+      "month": 3,
+      "day": 14,
+      "type": "cumpleanos",
+      "title": "CUMPLEAÑOS DEL COMISARIO INSPECTOR TÉCNICO SUPERIOR OMAR ARIEL PASTORIZA"
+    },
+    {
+      "id": "2026-3-15-23",
+      "year": 2026,
+      "month": 3,
+      "day": 15,
+      "type": "cumpleanos",
+      "title": "CUMPLEAÑOS DEL COMISARIO INSPECTOR LICENCIADO GERMÁN MATÍAS ARÉVALO"
+    },
+    {
+      "id": "2026-3-15-24",
+      "year": 2026,
+      "month": 3,
+      "day": 15,
+      "type": "cumpleanos",
+      "title": "CUMPLEAÑOS DEL COMISARIO INSPECTOR LICENCIADO LUCAS ESTEBAN REAL MOYANO"
+    },
+    {
+      "id": "2026-3-15-25",
+      "year": 2026,
+      "month": 3,
+      "day": 15,
+      "type": "aniversario",
+      "title": "ANIVERSARIO DE LA DIRECCIÓN ESTADÍSTICAS Y ANÁLISIS DEL DELITO"
+    },
+    {
+      "id": "2026-3-15-26",
+      "year": 2026,
+      "month": 3,
+      "day": 15,
+      "type": "aniversario",
+      "title": "ANIVERSARIO DEL DEPARTAMENTO ESCUELA DE OFICIALES DE POLICÍA “LIBERTADOR GENERAL DON JOSÉ DE SAN MARTÍN”"
+    },
+    {
+      "id": "2026-3-15-27",
+      "year": 2026,
+      "month": 3,
+      "day": 15,
+      "type": "aniversario",
+      "title": "ANIVERSARIO DEL DEPARTAMENTO ESTADÍSTICA APLICADA"
+    },
+    {
+      "id": "2026-3-15-28",
+      "year": 2026,
+      "month": 3,
+      "day": 15,
+      "type": "aniversario",
+      "title": "ANIVERSARIO DEL DEPARTAMENTO ESTADÍSTICA CRIMINAL"
+    },
+    {
+      "id": "2026-3-15-29",
+      "year": 2026,
+      "month": 3,
+      "day": 15,
+      "type": "aniversario",
+      "title": "ANIVERSARIO DEL DEPARTAMENTO VANT POLICIAL"
+    },
+    {
+      "id": "2026-3-16-30",
+      "year": 2026,
+      "month": 3,
+      "day": 16,
+      "type": "aniversario",
+      "title": "ANIVERSARIO DE LA SUBDIRECCIÓN GENERAL DEPARTAMENTALES SUR"
+    },
+    {
+      "id": "2026-3-16-31",
+      "year": 2026,
+      "month": 3,
+      "day": 16,
+      "type": "aniversario",
+      "title": "ANIVERSARIO DE LA SUBDIRECCIÓN GENERAL DEPARTAMENTALES NORTE"
+    },
+    {
+      "id": "2026-3-16-32",
+      "year": 2026,
+      "month": 3,
+      "day": 16,
+      "type": "aniversario",
+      "title": "ANIVERSARIO DE LA SUBDIRECCIÓN GENERAL UNIDADES ESPECIALES"
+    },
+    {
+      "id": "2026-3-16-33",
+      "year": 2026,
+      "month": 3,
+      "day": 16,
+      "type": "aniversario",
+      "title": "ANIVERSARIO 186º DEL NACIMIENTO DEL PRIMER SANTO ARGENTINO Y CORDOBÉS JOSÉ GABRIEL DEL ROSARIO BROCHERO"
+    },
+    {
+      "id": "2026-3-16-34",
+      "year": 2026,
+      "month": 3,
+      "day": 16,
+      "type": "aniversario",
+      "title": "ANIVERSARIO DE LA UNIVERSIDAD EMPRESARIAL SIGLO 21"
+    },
+    {
+      "id": "2026-3-17-35",
+      "year": 2026,
+      "month": 3,
+      "day": 17,
+      "type": "cumpleanos",
+      "title": "CUMPLEAÑOS DEL COMISARIO MAYOR LICENCIADO CARLOS CEFERINO DÍAZ"
+    },
+    {
+      "id": "2026-3-18-36",
+      "year": 2026,
+      "month": 3,
+      "day": 18,
+      "type": "cumpleanos",
+      "title": "CUMPLEAÑOS DEL COMISARIO INSPECTOR LICENCIADO FERNANDO IVÁN ORDOÑEZ"
+    },
+    {
+      "id": "2026-3-18-37",
+      "year": 2026,
+      "month": 3,
+      "day": 18,
+      "type": "cumpleanos",
+      "title": "CUMPLEAÑOS DEL COMISARIO INSPECTOR LICENCIADO ROLANDO MAURICIO LIBRA"
+    },
+    {
+      "id": "2026-3-18-38",
+      "year": 2026,
+      "month": 3,
+      "day": 18,
+      "type": "aniversario",
+      "title": "ANIVERSARIO DEL DEPARTAMENTO CAPELLANÍA POLICIAL"
+    },
+    {
+      "id": "2026-3-18-39",
+      "year": 2026,
+      "month": 3,
+      "day": 18,
+      "type": "dia",
+      "title": "DÍA MUNDIAL DEL TRABAJO SOCIAL"
+    },
+    {
+      "id": "2026-3-19-40",
+      "year": 2026,
+      "month": 3,
+      "day": 19,
+      "type": "aniversario",
+      "title": "ANIVERSARIO DEL CLUB ATLÉTICO BELGRANO"
+    },
+    {
+      "id": "2026-3-20-41",
+      "year": 2026,
+      "month": 3,
+      "day": 20,
+      "type": "cumpleanos",
+      "title": "CUMPLEAÑOS DEL COMISARIO INSPECTOR LICENCIADO RAMIRO MARTÍN GIGENA"
+    },
+    {
+      "id": "2026-3-21-42",
+      "year": 2026,
+      "month": 3,
+      "day": 21,
+      "type": "cumpleanos",
+      "title": "CUMPLEAÑOS DE LA COMISARIO INSPECTOR LICENCIADA FANNY BEATRIZ ARIZA"
+    },
+    {
+      "id": "2026-3-21-43",
+      "year": 2026,
+      "month": 3,
+      "day": 21,
+      "type": "cumpleanos",
+      "title": "CUMPLEAÑOS DEL COMISARIO INSPECTOR TÉCNICO SUPERIOR LUCAS GERMÁN DAGATTI"
+    },
+    {
+      "id": "2026-3-21-44",
+      "year": 2026,
+      "month": 3,
+      "day": 21,
+      "type": "dia",
+      "title": "DÍA MUNDIAL DEL SÍNDROME DE DOWN"
+    },
+    {
+      "id": "2026-3-22-45",
+      "year": 2026,
+      "month": 3,
+      "day": 22,
+      "type": "cumpleanos",
+      "title": "CUMPLEAÑOS DEL COMISARIO INSPECTOR LICENCIADO EDGARDO ARIEL CASTELLANO"
+    },
+    {
+      "id": "2026-3-22-46",
+      "year": 2026,
+      "month": 3,
+      "day": 22,
+      "type": "cumpleanos",
+      "title": "CUMPLEAÑOS DEL COMISARIO INSPECTOR LICENCIADO JOSÉ LUIS OVIEDO"
+    },
+    {
+      "id": "2026-3-22-47",
+      "year": 2026,
+      "month": 3,
+      "day": 22,
+      "type": "aniversario",
+      "title": "ANIVERSARIO DEL DUAR SAN JAVIER"
+    },
+    {
+      "id": "2026-3-22-48",
+      "year": 2026,
+      "month": 3,
+      "day": 22,
+      "type": "aniversario",
+      "title": "ANIVERSARIO DEL DUAR SANTA MARÍA"
+    },
+    {
+      "id": "2026-3-23-49",
+      "year": 2026,
+      "month": 3,
+      "day": 23,
+      "type": "cumpleanos",
+      "title": "CUMPLEAÑOS DEL COMISARIO MAYOR LICENCIADO JUAN PABLO ESQUIBEL"
+    },
+    {
+      "id": "2026-3-24-50",
+      "year": 2026,
+      "month": 3,
+      "day": 24,
+      "type": "cumpleanos",
+      "title": "CUMPLEAÑOS DEL COMISARIO INSPECTOR LICENCIADO LEONARDO JORGE SÁNCHEZ"
+    },
+    {
+      "id": "2026-3-24-51",
+      "year": 2026,
+      "month": 3,
+      "day": 24,
+      "type": "cumpleanos",
+      "title": "CUMPLEAÑOS DEL COMISARIO INSPECTOR LICENCIADO DARÍO EMILIO BRAVO"
+    },
+    {
+      "id": "2026-3-24-52",
+      "year": 2026,
+      "month": 3,
+      "day": 24,
+      "type": "cumpleanos",
+      "title": "CUMPLEAÑOS DEL COMISARIO INSPECTOR LICENCIADO LUIS ALBERTO TELLO"
+    },
+    {
+      "id": "2026-3-24-53",
+      "year": 2026,
+      "month": 3,
+      "day": 24,
+      "type": "dia",
+      "title": "DÍA NACIONAL DE LA MEMORIA POR LA VERDAD Y LA JUSTICIA"
+    },
+    {
+      "id": "2026-3-25-54",
+      "year": 2026,
+      "month": 3,
+      "day": 25,
+      "type": "aniversario",
+      "title": "ANIVERSARIO DE LA DIRECCIÓN SANIDAD"
+    },
+    {
+      "id": "2026-3-25-55",
+      "year": 2026,
+      "month": 3,
+      "day": 25,
+      "type": "aniversario",
+      "title": "ANIVERSARIO DEL DEPARTAMENTO COORDINACIÓN DE SERVICIOS DE SALUD"
+    },
+    {
+      "id": "2026-3-25-56",
+      "year": 2026,
+      "month": 3,
+      "day": 25,
+      "type": "aniversario",
+      "title": "ANIVERSARIO DE LA INDEPENDENCIA DE LA REPÚBLICA DE GRECIA"
+    },
+    {
+      "id": "2026-3-26-57",
+      "year": 2026,
+      "month": 3,
+      "day": 26,
+      "type": "cumpleanos",
+      "title": "CUMPLEAÑOS DEL COMISARIO INSPECTOR LICENCIADO EDWARD DAVID MARTINI"
+    },
+    {
+      "id": "2026-3-26-58",
+      "year": 2026,
+      "month": 3,
+      "day": 26,
+      "type": "aniversario",
+      "title": "ANIVERSARIO DE LA POLICÍA DE LA PROVINCIA DE SALTA"
+    },
+    {
+      "id": "2026-3-27-59",
+      "year": 2026,
+      "month": 3,
+      "day": 27,
+      "type": "cumpleanos",
+      "title": "CUMPLEAÑOS DEL COMISARIO MAYOR LICENCIADO GASTÓN BARRERA"
+    },
+    {
+      "id": "2026-3-28-60",
+      "year": 2026,
+      "month": 3,
+      "day": 28,
+      "type": "dia",
+      "title": "DÍA DEL INSTRUCTOR DE TIRO"
+    },
+    {
+      "id": "2026-3-29-61",
+      "year": 2026,
+      "month": 3,
+      "day": 29,
+      "type": "aniversario",
+      "title": "ANIVERSARIO DE LA SECCIÓN DE INVESTIGACIÓN CONTRA ACTOS DISCRIMINATORIOS (SICAD)"
+    },
+    {
+      "id": "2026-3-29-62",
+      "year": 2026,
+      "month": 3,
+      "day": 29,
+      "type": "aniversario",
+      "title": "ANIVERSARIO DEL DEPARTAMENTO DE INTELIGENCIA ANTITERRORISTA"
+    },
+    {
+      "id": "2026-3-29-63",
+      "year": 2026,
+      "month": 3,
+      "day": 29,
+      "type": "aniversario",
+      "title": "ANIVERSARIO DE LA DIVISIÓN AYUDANTÍA Y CAPACITACIÓN DEL DEPARTAMENTO GESTIÓN Y RELACIONES PÚBLICAS"
+    },
+    {
+      "id": "2026-3-29-64",
+      "year": 2026,
+      "month": 3,
+      "day": 29,
+      "type": "aniversario",
+      "title": "ANIVERSARIO DE LA DIVISIÓN GESTIÓN DE MEDIOS DE LA DIRECCIÓN RELACIONES INSTITUCIONALES"
+    },
+    {
+      "id": "2026-3-29-65",
+      "year": 2026,
+      "month": 3,
+      "day": 29,
+      "type": "aniversario",
+      "title": "ANIVERSARIO DE LA DIVISIÓN COMUNICACIÓN INSTITUCIONAL DE LA DIRECCIÓN RELACIONES INSTITUCIONALES"
+    },
+    {
+      "id": "2026-3-29-66",
+      "year": 2026,
+      "month": 3,
+      "day": 29,
+      "type": "aniversario",
+      "title": "ANIVERSARIO DE LA DIVISIÓN ENSAMBLE DE CÁMARA DEL DEPARTAMENTO BANDA DE MÚSICA"
+    },
+    {
+      "id": "2026-3-29-67",
+      "year": 2026,
+      "month": 3,
+      "day": 29,
+      "type": "aniversario",
+      "title": "ANIVERSARIO DEL SEOM PUNILLA"
+    },
+    {
+      "id": "2026-3-29-68",
+      "year": 2026,
+      "month": 3,
+      "day": 29,
+      "type": "aniversario",
+      "title": "ANIVERSARIO DEL SEOM RÍO CUARTO"
+    },
+    {
+      "id": "2026-3-30-69",
+      "year": 2026,
+      "month": 3,
+      "day": 30,
+      "type": "cumpleanos",
+      "title": "CUMPLEAÑOS DEL COMISARIO INSPECTOR LICENCIADO ROLANDO JAVIER CARRIZO"
+    },
+    {
+      "id": "2026-3-30-70",
+      "year": 2026,
+      "month": 3,
+      "day": 30,
+      "type": "aniversario",
+      "title": "ANIVERSARIO DE LA DIVISIÓN SEGURIDAD CENTRAL"
+    },
+    {
+      "id": "2026-3-31-71",
+      "year": 2026,
+      "month": 3,
+      "day": 31,
+      "type": "cumpleanos",
+      "title": "CUMPLEAÑOS DEL COMISARIO MAYOR LICENCIADO HERNÁN GUSTAVO ETCHEVERRY"
+    },
+    {
+      "id": "2026-3-31-72",
+      "year": 2026,
+      "month": 3,
+      "day": 31,
+      "type": "cumpleanos",
+      "title": "CUMPLEAÑOS DEL COMISARIO INSPECTOR LICENCIADO CLAUDIO CRISTIAN ARGÜELLO (EN USO DE LICENCIA POR RETIRO VOLUNTARIO)"
+    },
+    {
+      "id": "2026-3-31-73",
+      "year": 2026,
+      "month": 3,
+      "day": 31,
+      "type": "cumpleanos",
+      "title": "CUMPLEAÑOS DEL COMISARIO INSPECTOR TÉCNICO SUPERIOR ROLANDO SILVERIO TURLETTI"
+    },
+    {
+      "id": "2026-3-31-74",
+      "year": 2026,
+      "month": 3,
+      "day": 31,
+      "type": "cumpleanos",
+      "title": "CUMPLEAÑOS DEL COMISARIO INSPECTOR LICENCIADO AUGUSTO MARTÍN LÓPEZ"
+    },
+    {
+      "id": "2026-3-31-75",
+      "year": 2026,
+      "month": 3,
+      "day": 31,
+      "type": "aniversario",
+      "title": "ANIVERSARIO DEL DEPARTAMENTO CONSTRUCCIONES"
+    }
+  ],
+  "eventCount": 76
+}

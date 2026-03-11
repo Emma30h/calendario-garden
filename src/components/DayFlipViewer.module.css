@@ -1,0 +1,202 @@
+.viewerPerspective {
+  perspective: 2200px;
+  width: 100%;
+}
+
+.sheetStack {
+  --sheet-height: clamp(10.5rem, 34dvh, 16rem);
+  position: relative;
+  width: min(100%, 44rem);
+  min-height: var(--sheet-height);
+  margin-inline: auto;
+  contain: layout paint;
+  transform: translateZ(0);
+}
+
+.sheet {
+  min-height: var(--sheet-height);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgb(148 163 184 / 0.38);
+  border-radius: 1.75rem;
+  background:
+    linear-gradient(180deg, rgb(255 255 255 / 0.98) 0%, rgb(234 243 255 / 0.95) 100%);
+  box-shadow:
+    0 18px 32px rgb(2 8 23 / 0.22),
+    inset 0 1px 0 rgb(255 255 255 / 0.98);
+}
+
+@media (min-width: 1024px) {
+  .sheetStack {
+    --sheet-height: min(40rem, 60vh);
+  }
+}
+
+.baseSheet {
+  position: relative;
+  z-index: 10;
+  transform: translateZ(0);
+}
+
+.flipSheet {
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  pointer-events: none;
+  transform-origin: top center;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  will-change: transform, opacity;
+  transform: translateZ(0.01px);
+}
+
+.flipSheet::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(180deg, rgb(191 219 254 / 0.36), rgb(125 170 232 / 0.24));
+  opacity: 0;
+}
+
+.flipSheet::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(180deg, rgb(0 0 0 / 0.36), rgb(0 0 0 / 0));
+  opacity: 0;
+}
+
+.flipNext {
+  animation: flip-next 700ms cubic-bezier(0.18, 0.78, 0.12, 1) forwards;
+}
+
+.flipNext::before {
+  animation: paper-light 700ms cubic-bezier(0.18, 0.78, 0.12, 1) forwards;
+}
+
+.flipNext::after {
+  animation: paper-shadow 700ms cubic-bezier(0.18, 0.78, 0.12, 1) forwards;
+}
+
+.flipPrev {
+  transform: rotateX(-178deg);
+  animation: flip-prev 700ms cubic-bezier(0.18, 0.78, 0.12, 1) forwards;
+}
+
+.flipPrev::before {
+  animation: paper-light 700ms cubic-bezier(0.18, 0.78, 0.12, 1) reverse forwards;
+}
+
+.flipPrev::after {
+  animation: paper-shadow 700ms cubic-bezier(0.18, 0.78, 0.12, 1) reverse forwards;
+}
+
+@keyframes flip-next {
+  0% {
+    transform: rotateX(0deg);
+  }
+  12% {
+    transform: rotateX(-18deg);
+  }
+  24% {
+    transform: rotateX(-42deg);
+  }
+  36% {
+    transform: rotateX(-72deg);
+  }
+  48% {
+    transform: rotateX(-102deg);
+  }
+  60% {
+    transform: rotateX(-128deg);
+  }
+  74% {
+    transform: rotateX(-150deg);
+  }
+  88% {
+    transform: rotateX(-168deg);
+  }
+  100% {
+    transform: rotateX(-178deg);
+  }
+}
+
+@keyframes flip-prev {
+  0% {
+    transform: rotateX(-178deg);
+  }
+  12% {
+    transform: rotateX(-166deg);
+  }
+  24% {
+    transform: rotateX(-146deg);
+  }
+  36% {
+    transform: rotateX(-122deg);
+  }
+  48% {
+    transform: rotateX(-96deg);
+  }
+  60% {
+    transform: rotateX(-68deg);
+  }
+  74% {
+    transform: rotateX(-42deg);
+  }
+  88% {
+    transform: rotateX(-18deg);
+  }
+  100% {
+    transform: rotateX(0deg);
+  }
+}
+
+@keyframes paper-light {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.12;
+  }
+  52% {
+    opacity: 0.4;
+  }
+  80% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes paper-shadow {
+  0% {
+    opacity: 0.06;
+  }
+  24% {
+    opacity: 0.24;
+  }
+  50% {
+    opacity: 0.42;
+  }
+  74% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 0.06;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flipNext,
+  .flipPrev,
+  .flipNext::before,
+  .flipNext::after,
+  .flipPrev::before,
+  .flipPrev::after {
+    animation-duration: 1ms !important;
+  }
+}
