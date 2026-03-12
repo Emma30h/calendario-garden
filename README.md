@@ -102,7 +102,8 @@ Notes:
 ## Daily notification run (Phase 3)
 
 This project now includes a cron-ready endpoint:
-- `POST /api/notifications/run-daily`
+- `GET /api/notifications/run-daily` (Vercel cron)
+- `POST /api/notifications/run-daily` (manual trigger)
 
 Setup:
 
@@ -118,7 +119,12 @@ Setup:
 4. Manual trigger example:
 
 ```bash
+# Manual trigger (POST)
 curl -X POST "http://localhost:3000/api/notifications/run-daily" \
+  -H "Authorization: Bearer YOUR_CRON_SECRET"
+
+# Cron-compatible trigger (GET)
+curl "http://localhost:3000/api/notifications/run-daily" \
   -H "Authorization: Bearer YOUR_CRON_SECRET"
 ```
 
@@ -148,7 +154,7 @@ On Vercel project settings:
    - `NEXT_PUBLIC_SUPABASE_URL` (or `SUPABASE_URL`)
 2. Redeploy.
 
-Vercel cron requests will include `Authorization: Bearer <CRON_SECRET>` when `CRON_SECRET` is configured.
+Vercel cron requests use `GET` and include `Authorization: Bearer <CRON_SECRET>` when `CRON_SECRET` is configured.
 
 ## Learn More
 
