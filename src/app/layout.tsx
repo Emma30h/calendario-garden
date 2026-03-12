@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { AppBackground } from "@/components/AppBackground";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -19,16 +20,7 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body className="app-shell antialiased">
-        <div aria-hidden="true" className="app-background">
-          <div className="app-background-gradient" />
-          <div className="app-moving-blobs">
-            <span className="app-blob app-blob--1" />
-            <span className="app-blob app-blob--2" />
-            <span className="app-blob app-blob--3" />
-            <span className="app-blob app-blob--4" />
-          </div>
-          <div className="app-background-image" />
-        </div>
+        <AppBackground />
         <div className="app-content">{children}</div>
       </body>
     </html>
