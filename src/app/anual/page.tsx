@@ -1,4 +1,4 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 import { redirect } from "next/navigation";
 import ExitClientModeButton from "@/components/ExitClientModeButton";
 import SectionBreadcrumb from "@/components/SectionBreadcrumb";
