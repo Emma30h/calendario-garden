@@ -13,12 +13,12 @@ const NO_STORE_HEADERS = {
 };
 
 const BIRTHDAY_SELECT =
-  "id,first_name,last_name,birth_date,area,turno,personal_category,policial_role,oficial_category,suboficial_category";
+  "id,first_name,last_name,birth_date,area,turno,personal_category,policial_role,oficial_category,suboficial_category,source,synced_at";
 const DEFAULT_PAGE_SIZE = 15;
 const MAX_PAGE_SIZE = 100;
 
-type PersonalCategory = "Policial" | "Civil" | "Gobierno";
-type PolicialRole = "Oficial" | "Suboficial" | "Tecnico" | "Civil";
+export type PersonalCategory = "Policial" | "Civil" | "Gobierno";
+export type PolicialRole = "Oficial" | "Suboficial" | "Tecnico" | "Civil";
 type NameOrder = "asc" | "desc";
 type DateFilterMode =
   | "thisMonth"
@@ -28,6 +28,8 @@ type DateFilterMode =
   | "dateRange"
   | "monthDayRange";
 
+export type BirthdaySource = "MANUAL" | "PERFILES_GARDEN";
+
 type BirthdayRecordResponse = {
   id: string;
   firstName: string;
@@ -35,6 +37,8 @@ type BirthdayRecordResponse = {
   birthDate: string;
   area?: string;
   turno?: string;
+  source: BirthdaySource;
+  syncedAt?: string;
   personal:
     | {
         category: "Civil";
@@ -50,7 +54,7 @@ type BirthdayRecordResponse = {
       };
 };
 
-type BirthdayInsertPayload = {
+export type BirthdayInsertPayload = {
   first_name: string;
   last_name: string;
   birth_date: string;
@@ -81,7 +85,7 @@ function asNonEmptyString(value: unknown) {
   return normalized.length > 0 ? normalized : null;
 }
 
-function sanitizePersonName(value: unknown) {
+export function sanitizePersonName(value: unknown) {
   const parsed = asNonEmptyString(value);
   if (!parsed) {
     return null;
@@ -95,7 +99,7 @@ function sanitizePersonName(value: unknown) {
   return sanitized.length > 0 ? sanitized : null;
 }
 
-function asIsoDateString(value: unknown) {
+export function asIsoDateString(value: unknown) {
   const parsed = asNonEmptyString(value);
   if (!parsed || !/^\d{4}-\d{2}-\d{2}$/.test(parsed)) {
     return null;
@@ -117,7 +121,7 @@ function isPolicialRole(value: string): value is PolicialRole {
   );
 }
 
-function isFutureDate(isoDate: string) {
+export function isFutureDate(isoDate: string) {
   const todayIso = new Date().toISOString().slice(0, 10);
   return isoDate > todayIso;
 }
@@ -187,6 +191,10 @@ function normalizeBirthdayFromRow(row: unknown): BirthdayRecordResponse | null {
             category: "Civil",
           };
 
+  const rawSource = asNonEmptyString(parsed.source);
+  const source: BirthdaySource = rawSource === "PERFILES_GARDEN" ? "PERFILES_GARDEN" : "MANUAL";
+  const syncedAt = asNonEmptyString(parsed.synced_at) ?? asNonEmptyString(parsed.syncedAt);
+
   return {
     id,
     firstName,
@@ -194,6 +202,8 @@ function normalizeBirthdayFromRow(row: unknown): BirthdayRecordResponse | null {
     birthDate,
     area: area ?? undefined,
     turno: turno ?? undefined,
+    source,
+    syncedAt: syncedAt ?? undefined,
     personal,
   };
 }
@@ -424,6 +434,53 @@ function updatePath(id: string) {
   params.set("id", `eq.${id}`);
   params.set("select", BIRTHDAY_SELECT);
   return `birthdays?${params.toString()}`;
+}
+
+function sourceLookupPath(id: string) {
+  const params = new URLSearchParams();
+  params.set("id", `eq.${id}`);
+  params.set("select", "source");
+  params.set("limit", "1");
+  return `birthdays?${params.toString()}`;
+}
+
+// Los registros sincronizados desde Perfiles Garden son de solo lectura acá:
+// se editan/eliminan corrigiendo el legajo de origen y volviendo a sincronizar
+// (POST /api/birthdays/sync), nunca a mano. Esto se aplica tanto en la UI
+// (src/app/anual/personal-cargado/page.tsx) como acá server-side, para que un
+// PATCH/DELETE directo a la API tampoco pueda desincronizarlos.
+async function assertEditableRecord(id: string) {
+  const response = await supabaseRestFetch(sourceLookupPath(id));
+
+  if (!response.ok) {
+    const message = await readSupabaseErrorMessage(
+      response,
+      "No se pudo validar el origen del cumpleaÃ±os."
+    );
+    return {
+      ok: false as const,
+      response: NextResponse.json({ error: message }, { status: response.status }),
+    };
+  }
+
+  const rows = (await response.json()) as unknown;
+  const row = Array.isArray(rows) ? asRecord(rows[0]) : null;
+  const source = row ? asNonEmptyString(row.source) : null;
+
+  if (source === "PERFILES_GARDEN") {
+    return {
+      ok: false as const,
+      response: NextResponse.json(
+        {
+          error:
+            "Este registro se sincroniza desde Perfiles Garden y no se puede editar ni eliminar a mano.",
+        },
+        { status: 409 }
+      ),
+    };
+  }
+
+  return { ok: true as const };
 }
 
 function formatRouteError(caught: unknown, fallback: string) {
@@ -1150,6 +1207,11 @@ export async function PATCH(request: Request) {
       );
     }
 
+    const editable = await assertEditableRecord(id);
+    if (!editable.ok) {
+      return editable.response;
+    }
+
     const body = (await request.json()) as unknown;
     const parsed = parseInsertPayload(body);
 
@@ -1253,6 +1315,11 @@ export async function DELETE(request: Request) {
         { error: "Debes indicar el ID del cumpleaÃ±os a eliminar." },
         { status: 400 }
       );
+    }
+
+    const editable = await assertEditableRecord(id);
+    if (!editable.ok) {
+      return editable.response;
     }
 
     const params = new URLSearchParams();

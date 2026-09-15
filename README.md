@@ -99,6 +99,40 @@ Notes:
   - `NEXT_PUBLIC_EMAIL_PANEL_MODE=test`
   - Hides manual daily-run controls and run history in `/anual/email`.
 
+## Sincronizacion de cumpleanos con Perfiles Garden
+
+`public.birthdays` puede completarse solo a partir de los legajos reales del
+proyecto hermano "Perfiles Garden" (`gestion_personal.agentes`, mismo proyecto
+de Supabase). Las filas sincronizadas quedan de solo lectura en
+`/anual/personal-cargado` (no editables/borrables a mano, ver `source` en cada
+registro); la carga manual sigue disponible para lo que Perfiles Garden no
+puede resolver (personal "Gobierno", legajos incompletos).
+
+Setup:
+
+1. Agregar en `.env.local`:
+   - `PERFILES_GARDEN_DATABASE_URL` (conexion Postgres de **solo lectura**,
+     reutilizar el `DATABASE_URL` pooled del proyecto Perfiles Garden — mismo
+     Supabase, schema `gestion_personal`).
+2. En Supabase SQL Editor, correr:
+   - `supabase/birthdays_source_sync.sql`
+3. Restart dev server.
+4. Disparar el sync:
+   - Boton "Sincronizar ahora" en `/anual/personal-cargado` (requiere sesion
+     ADMIN), o
+   - `POST`/`GET /api/birthdays/sync` con `Authorization: Bearer <CRON_SECRET>`
+     (mismo secreto que usa el cron de notificaciones).
+
+Notas:
+- Solo se sincronizan agentes con `estado = 'ACTIVO'` y `fechaNacimiento`
+  cargada. Los que no se pueden mapear (sin rango, sin area/sector, turno no
+  reconocido) se excluyen y se listan en la respuesta del sync para
+  completarlos a mano.
+- El sync hace upsert por `source_agente_id` y borra las filas sincronizadas
+  que ya no corresponden (baja, sin fecha, etc.) — nunca toca filas `MANUAL`.
+- El cron en `vercel.json` corre a las 06:00 UTC, antes del envio diario de
+  notificaciones (10:00 UTC), para que ese envio ya vea los cumpleanos del dia.
+
 ## Daily notification run (Phase 3)
 
 This project now includes a cron-ready endpoint:

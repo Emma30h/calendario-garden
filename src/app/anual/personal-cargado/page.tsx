@@ -31,6 +31,8 @@ type PersonalInfo =
       suboficialCategory?: string;
     };
 
+type BirthdaySource = "MANUAL" | "PERFILES_GARDEN";
+
 type BirthdayRecord = {
   id: string;
   firstName: string;
@@ -38,6 +40,7 @@ type BirthdayRecord = {
   birthDate: string;
   area?: string;
   turno?: string;
+  source: BirthdaySource;
   personal: PersonalInfo;
 };
 
@@ -529,6 +532,9 @@ function normalizeBirthdayRecord(item: unknown): BirthdayRecord | null {
             category: "Civil",
           };
 
+  const sourceRaw = asNonEmptyString(parsed.source);
+  const source: BirthdaySource = sourceRaw === "PERFILES_GARDEN" ? "PERFILES_GARDEN" : "MANUAL";
+
   return {
     id,
     firstName,
@@ -536,6 +542,7 @@ function normalizeBirthdayRecord(item: unknown): BirthdayRecord | null {
     birthDate,
     area: asNonEmptyString(parsed.area) ?? undefined,
     turno: asNonEmptyString(parsed.turno) ?? undefined,
+    source,
     personal,
   };
 }
@@ -1017,6 +1024,7 @@ export default function PersonalCargadoPage() {
   const [totalRecords, setTotalRecords] = useState(0);
   const [reloadKey, setReloadKey] = useState(0);
   const [deletingId, setDeletingId] = useState<string | null>(null);
+  const [isSyncingPerfilesGarden, setIsSyncingPerfilesGarden] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [message, setMessage] = useState<string | null>(null);
   const [isNoticeVisible, setIsNoticeVisible] = useState(false);
@@ -1965,6 +1973,56 @@ export default function PersonalCargadoPage() {
     }
   }
 
+  async function runPerfilesGardenSync() {
+    if (!canManageRecords || isSyncingPerfilesGarden) {
+      return;
+    }
+
+    setIsSyncingPerfilesGarden(true);
+    setError(null);
+    setMessage(null);
+
+    try {
+      const response = await fetch("/api/birthdays/sync", { method: "POST" });
+      const body = (await response.json()) as
+        | { data?: { upserted?: unknown; deleted?: unknown; skipped?: unknown } }
+        | ApiErrorResponse;
+
+      if (!response.ok || isApiError(body) || !body.data) {
+        throw new Error(
+          isApiError(body)
+            ? body.error
+            : "No se pudo sincronizar con Perfiles Garden."
+        );
+      }
+
+      const upserted = Number(body.data.upserted) || 0;
+      const deleted = Number(body.data.deleted) || 0;
+      const skipped = Array.isArray(body.data.skipped) ? body.data.skipped : [];
+
+      setCurrentPage(1);
+      setReloadKey((prev) => prev + 1);
+      dispatchBirthdaysUpdated();
+
+      const skippedSummary =
+        skipped.length > 0
+          ? ` ${skipped.length} legajo(s) requieren revisión manual (falta rango, área o turno reconocido).`
+          : "";
+      setMessage(
+        `Sincronización completa: ${upserted} actualizados, ${deleted} eliminados.${skippedSummary}`
+      );
+    } catch (caught) {
+      const detail =
+        caught instanceof Error
+          ? caught.message
+          : "Error al sincronizar con Perfiles Garden.";
+      setError(detail);
+      setMessage(null);
+    } finally {
+      setIsSyncingPerfilesGarden(false);
+    }
+  }
+
   async function handleUpdateRecord(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
@@ -2133,7 +2191,7 @@ export default function PersonalCargadoPage() {
             </div>
             <div className="relative order-first z-[120] flex flex-wrap items-center gap-2 self-end sm:order-none sm:self-auto">
               {canManageRecords ? (
-                <div className="hidden sm:block">
+                <div className="hidden items-center gap-2 sm:flex">
                   <CreateBirthdayEventButton
                     buttonClassName="inline-flex h-11 items-center justify-center gap-2 rounded-full bg-sky-500 px-5 text-sm font-semibold text-slate-950 transition hover:bg-sky-400 disabled:cursor-not-allowed disabled:opacity-60"
                     onCreated={() => {
@@ -2141,6 +2199,17 @@ export default function PersonalCargadoPage() {
                       setReloadKey((prev) => prev + 1);
                     }}
                   />
+                  <button
+                    type="button"
+                    disabled={isSyncingPerfilesGarden}
+                    onClick={() => {
+                      void runPerfilesGardenSync();
+                    }}
+                    title="Trae cumpleaños desde los legajos activos de Perfiles Garden."
+                    className="inline-flex h-11 items-center justify-center gap-2 rounded-full border border-emerald-300/35 bg-emerald-400/15 px-5 text-sm font-semibold text-emerald-100 transition hover:bg-emerald-400/20 disabled:cursor-not-allowed disabled:opacity-60"
+                  >
+                    {isSyncingPerfilesGarden ? "Sincronizando..." : "Sincronizar con Perfiles Garden"}
+                  </button>
                 </div>
               ) : null}
               {sessionRole === "ADMIN" ? (
@@ -2160,7 +2229,7 @@ export default function PersonalCargadoPage() {
           </div>
 
           {canManageRecords ? (
-            <div className="relative z-0 mt-4 sm:hidden">
+            <div className="relative z-0 mt-4 flex flex-col gap-2 sm:hidden">
               <CreateBirthdayEventButton
                 buttonClassName="inline-flex h-11 w-full items-center justify-center gap-2 rounded-full bg-sky-500 px-5 text-sm font-semibold text-slate-950 transition hover:bg-sky-400 disabled:cursor-not-allowed disabled:opacity-60"
                 onCreated={() => {
@@ -2168,6 +2237,16 @@ export default function PersonalCargadoPage() {
                   setReloadKey((prev) => prev + 1);
                 }}
               />
+              <button
+                type="button"
+                disabled={isSyncingPerfilesGarden}
+                onClick={() => {
+                  void runPerfilesGardenSync();
+                }}
+                className="inline-flex h-11 w-full items-center justify-center gap-2 rounded-full border border-emerald-300/35 bg-emerald-400/15 px-5 text-sm font-semibold text-emerald-100 transition hover:bg-emerald-400/20 disabled:cursor-not-allowed disabled:opacity-60"
+              >
+                {isSyncingPerfilesGarden ? "Sincronizando..." : "Sincronizar con Perfiles Garden"}
+              </button>
             </div>
           ) : null}
         </header>
@@ -3011,7 +3090,14 @@ export default function PersonalCargadoPage() {
                       </p>
                     )}
                   </div>
-                  {canManageRecords ? (
+                  {person.source === "PERFILES_GARDEN" ? (
+                    <span
+                      title="Se actualiza solo desde el legajo en Perfiles Garden. Para corregirlo, editar el legajo y volver a sincronizar."
+                      className="inline-flex shrink-0 items-center rounded-full border border-emerald-300/35 bg-emerald-400/15 px-3 py-1 text-xs font-semibold text-emerald-100"
+                    >
+                      Sincronizado · Perfiles Garden
+                    </span>
+                  ) : canManageRecords ? (
                     <div className="flex shrink-0 gap-2">
                       <button
                         type="button"
