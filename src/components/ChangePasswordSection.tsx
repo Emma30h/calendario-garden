@@ -175,7 +175,7 @@ export default function ChangePasswordSection() {
   }
 
   return (
-    <section className="mt-5 rounded-2xl border border-white/15 bg-white/8 p-4 shadow-[0_10px_24px_rgba(2,8,23,0.28)] backdrop-blur-sm sm:p-5">
+    <section className="gc-panel gc-panel--compact relative z-10 mt-5">
       <button
         type="button"
         onClick={togglePanel}
@@ -222,7 +222,7 @@ export default function ChangePasswordSection() {
                       value={currentPassword}
                       onChange={(event) => setCurrentPassword(event.target.value)}
                       autoComplete="current-password"
-                      className="hide-password-reveal w-full rounded-xl border border-white/20 bg-slate-950/42 px-3 py-2 pr-12 text-sm text-slate-100 outline-none ring-sky-300/55 placeholder:text-slate-400/70 focus:ring-2"
+                      className="gc-input hide-password-reveal pr-12"
                       disabled={isSubmitting}
                     />
                     <button
@@ -249,7 +249,7 @@ export default function ChangePasswordSection() {
                       value={newPassword}
                       onChange={(event) => setNewPassword(event.target.value)}
                       autoComplete="new-password"
-                      className="hide-password-reveal w-full rounded-xl border border-white/20 bg-slate-950/42 px-3 py-2 pr-12 text-sm text-slate-100 outline-none ring-sky-300/55 placeholder:text-slate-400/70 focus:ring-2"
+                      className="gc-input hide-password-reveal pr-12"
                       disabled={isSubmitting}
                     />
                     <button
@@ -332,7 +332,7 @@ export default function ChangePasswordSection() {
                       value={confirmPassword}
                       onChange={(event) => setConfirmPassword(event.target.value)}
                       autoComplete="new-password"
-                      className="hide-password-reveal w-full rounded-xl border border-white/20 bg-slate-950/42 px-3 py-2 pr-12 text-sm text-slate-100 outline-none ring-sky-300/55 placeholder:text-slate-400/70 focus:ring-2"
+                      className="gc-input hide-password-reveal pr-12"
                       disabled={isSubmitting}
                     />
                     <button
@@ -372,7 +372,7 @@ export default function ChangePasswordSection() {
                   <button
                     type="submit"
                     disabled={isSubmitting || !isFormReady}
-                    className="inline-flex h-10 items-center justify-center rounded-full border border-sky-300/35 bg-sky-400/22 px-5 text-sm font-semibold text-sky-100 shadow-sm transition duration-300 ease-out hover:bg-sky-400/30 disabled:cursor-not-allowed disabled:opacity-60"
+                    className="gc-btn gc-btn-accent !h-10"
                   >
                     {isSubmitting ? "Guardando..." : "Cambiar contraseña"}
                   </button>

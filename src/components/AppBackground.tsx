@@ -40,6 +40,8 @@ export function AppBackground() {
         <span className="app-blob app-blob--4" />
       </div>
       <div className="app-background-image" />
+      <div className="app-background-grid" />
+      <div className="app-background-vignette" />
       <div className="app-background-skeleton" />
     </div>
   );

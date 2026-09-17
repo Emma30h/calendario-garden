@@ -700,16 +700,7 @@ export default function AnnualEmailPage() {
   return (
     <main className="min-h-screen bg-transparent px-4 py-10 sm:px-6">
       <div className="mx-auto w-full max-w-5xl space-y-6">
-        <section className="relative z-40 overflow-visible rounded-3xl border border-white/25 bg-[linear-gradient(140deg,rgba(15,23,42,0.66)_0%,rgba(15,23,42,0.42)_100%)] p-6 shadow-[0_24px_52px_rgba(2,8,23,0.45)] backdrop-blur-md sm:p-8">
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute -right-20 -top-24 h-56 w-56 rounded-full bg-sky-300/18 blur-3xl"
-          />
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute -left-24 -bottom-28 h-56 w-56 rounded-full bg-indigo-300/10 blur-3xl"
-          />
-
+        <section className="gc-panel relative z-40 !overflow-visible !p-6 sm:!p-8">
           <div className="relative z-[140] flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
             <div>
               <SectionBreadcrumb
@@ -722,6 +713,7 @@ export default function AnnualEmailPage() {
               <h1 className="text-3xl font-bold text-slate-100 sm:text-4xl">
                 E-Mails de notificacion
               </h1>
+              <div className="gc-divider-gold mt-2" />
               <p className="mt-2 text-sm text-slate-300/90">
                 Destinatarios que recibiran el resumen diario de eventos.
               </p>
@@ -772,12 +764,12 @@ export default function AnnualEmailPage() {
                   value={email}
                   onChange={(event) => setEmail(event.target.value)}
                   placeholder="nombre@dominio.com"
-                  className="h-11 w-full rounded-xl border border-white/20 bg-slate-900/80 px-3 text-sm text-slate-100 outline-none ring-sky-300/50 placeholder:text-slate-400 focus:ring-2"
+                  className="gc-input !mt-0"
                 />
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="inline-flex h-11 items-center justify-center rounded-full bg-sky-500 px-5 text-sm font-semibold text-slate-950 transition hover:bg-sky-400 disabled:cursor-not-allowed disabled:opacity-60"
+                  className="gc-btn gc-btn-primary"
                 >
                   {isSubmitting ? "Guardando..." : "Agregar"}
                 </button>
@@ -988,16 +980,7 @@ export default function AnnualEmailPage() {
           ) : null}
         </section>
 
-        <section className="relative z-10 overflow-hidden rounded-3xl border border-white/25 bg-[linear-gradient(145deg,rgba(15,23,42,0.66)_0%,rgba(15,23,42,0.42)_100%)] p-6 shadow-[0_24px_52px_rgba(2,8,23,0.45)] backdrop-blur-md sm:p-8">
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute -right-16 -top-16 h-44 w-44 rounded-full bg-sky-300/18 blur-3xl"
-          />
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute -left-20 -bottom-20 h-52 w-52 rounded-full bg-indigo-300/10 blur-3xl"
-          />
-
+        <section className="gc-panel relative z-10 !p-6 sm:!p-8">
           <h2 className="relative z-10 text-xl font-bold text-slate-100">Destinatarios</h2>
 
           {isLoading ? (
@@ -1093,15 +1076,7 @@ export default function AnnualEmailPage() {
         </section>
 
         {isTestOnlyMode ? null : (
-          <section className="relative z-10 overflow-hidden rounded-3xl border border-white/25 bg-[linear-gradient(145deg,rgba(15,23,42,0.66)_0%,rgba(15,23,42,0.42)_100%)] p-6 shadow-[0_24px_52px_rgba(2,8,23,0.45)] backdrop-blur-md sm:p-8">
-            <div
-              aria-hidden="true"
-              className="pointer-events-none absolute -right-16 -top-16 h-44 w-44 rounded-full bg-sky-300/18 blur-3xl"
-            />
-            <div
-              aria-hidden="true"
-              className="pointer-events-none absolute -left-20 -bottom-20 h-52 w-52 rounded-full bg-indigo-300/10 blur-3xl"
-            />
+          <section className="gc-panel relative z-10 !p-6 sm:!p-8">
             <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
               <h2 className="text-xl font-bold text-slate-100">
                 Historial de envios diarios

@@ -5,7 +5,7 @@ import Link from "next/link";
 export default function AnnualBirthdaysSettings() {
   return (
     <div className="grid gap-3 sm:grid-cols-2">
-      <section className="rounded-2xl border border-white/15 bg-white/8 p-4 shadow-[0_10px_24px_rgba(2,8,23,0.28)] backdrop-blur-sm">
+      <section className="gc-panel gc-panel--compact relative z-10">
         <h3 className="text-base font-bold text-slate-100">Personal cargado</h3>
         <p className="mt-1 text-sm text-slate-300/80">
           Administra el listado del personal y carga nuevos eventos desde esa seccion.
@@ -14,7 +14,7 @@ export default function AnnualBirthdaysSettings() {
         <div className="mt-3">
           <Link
             href="/anual/personal-cargado"
-            className="inline-flex h-11 w-full items-center justify-center gap-2 rounded-full border border-sky-300/35 bg-sky-400/22 px-4 text-sm font-semibold text-sky-100 shadow-sm transition duration-300 ease-out hover:bg-sky-400/30"
+            className="gc-btn gc-btn-accent w-full"
           >
             <svg
               aria-hidden="true"
@@ -36,7 +36,7 @@ export default function AnnualBirthdaysSettings() {
         </div>
       </section>
 
-      <section className="rounded-2xl border border-white/15 bg-white/8 p-4 shadow-[0_10px_24px_rgba(2,8,23,0.28)] backdrop-blur-sm">
+      <section className="gc-panel gc-panel--compact relative z-10">
         <h3 className="text-base font-bold text-slate-100">E-Mails</h3>
         <p className="mt-1 text-sm text-slate-300/80">
           Gestiona destinatarios y revisa el panel de notificaciones.
@@ -47,7 +47,7 @@ export default function AnnualBirthdaysSettings() {
             href="/anual/email"
             aria-label="E-Mails"
             title="E-Mails"
-            className="inline-flex h-11 w-full items-center justify-center gap-2 rounded-full border border-sky-300/35 bg-sky-400/22 px-4 text-sm font-semibold text-sky-100 shadow-sm transition duration-300 ease-out hover:bg-sky-400/30"
+            className="gc-btn gc-btn-accent w-full"
           >
             <svg
               aria-hidden="true"

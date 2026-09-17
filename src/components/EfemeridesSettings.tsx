@@ -455,7 +455,7 @@ export default function EfemeridesSettings({
         type="button"
         aria-label="Configurar efemérides"
         onClick={() => setIsOpen(true)}
-        className={`inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/25 bg-white/10 text-slate-100/90 shadow-sm transition duration-300 ease-out hover:bg-white/15 ${
+        className={`gc-btn gc-btn-ghost !w-11 !px-0 ${
           isOpen ? "rotate-90" : "rotate-0"
         }`}
       >
@@ -475,7 +475,7 @@ export default function EfemeridesSettings({
 
       {isOpen ? createPortal(
         <div className="fixed inset-0 z-[120] flex items-center justify-center bg-slate-950/60 p-4">
-          <div className="w-full max-w-xl rounded-2xl border border-white/20 bg-[linear-gradient(145deg,rgba(15,23,42,0.9)_0%,rgba(15,23,42,0.78)_100%)] p-6 shadow-[0_28px_60px_rgba(2,8,23,0.55)] backdrop-blur-xl">
+          <div className="gc-panel w-full max-w-xl !p-6">
             <div className="flex items-start justify-between gap-3">
               <div>
                 <h2 className="text-xl font-bold text-slate-100">
@@ -519,7 +519,7 @@ export default function EfemeridesSettings({
                 type="button"
                 onClick={() => inputRef.current?.click()}
                 disabled={isParsing}
-                className="mt-4 inline-flex rounded-full border border-sky-300/35 bg-sky-400/25 px-5 py-2 text-sm font-semibold text-sky-50 transition hover:bg-sky-400/35 disabled:opacity-60"
+                className="gc-btn gc-btn-accent mt-4"
               >
                 {isParsing ? "Procesando..." : "Seleccionar PDF"}
               </button>
@@ -585,7 +585,7 @@ export default function EfemeridesSettings({
                       setIsReplaceConfirmOpen(false);
                       setError(null);
                     }}
-                    className="inline-flex rounded-full border border-white/25 bg-white/10 px-4 py-2 text-xs font-semibold text-slate-100/90 hover:bg-white/15"
+                    className="gc-btn gc-btn-ghost !h-9 !text-xs"
                   >
                     Cancelar
                   </button>
@@ -616,7 +616,7 @@ export default function EfemeridesSettings({
                         onClick={() => {
                           setIsReplaceConfirmOpen(false);
                         }}
-                        className="inline-flex rounded-full border border-white/25 bg-white/10 px-4 py-2 text-xs font-semibold text-slate-100/90 hover:bg-white/15 disabled:cursor-not-allowed disabled:opacity-60"
+                        className="gc-btn gc-btn-ghost !h-9 !text-xs"
                       >
                         Volver
                       </button>

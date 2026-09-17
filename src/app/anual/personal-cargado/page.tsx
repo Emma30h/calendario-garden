@@ -2161,16 +2161,7 @@ export default function PersonalCargadoPage() {
       ) : null}
 
       <div className="mx-auto w-full max-w-4xl space-y-5 lg:flex lg:h-full lg:flex-col lg:space-y-4">
-        <header className="relative z-30 overflow-visible rounded-3xl border border-white/25 bg-[linear-gradient(140deg,rgba(15,23,42,0.66)_0%,rgba(15,23,42,0.42)_100%)] p-6 shadow-[0_24px_52px_rgba(2,8,23,0.45)] backdrop-blur-md sm:p-8">
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute -right-20 -top-24 h-56 w-56 rounded-full bg-sky-300/18 blur-3xl"
-          />
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute -left-24 -bottom-28 h-56 w-56 rounded-full bg-indigo-300/10 blur-3xl"
-          />
-
+        <header className="gc-panel relative z-30 !overflow-visible !p-6 sm:!p-8">
           <div className="relative z-20 flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
             <div>
               <SectionBreadcrumb
@@ -2185,7 +2176,8 @@ export default function PersonalCargadoPage() {
               <h1 className="text-3xl font-bold text-slate-100 sm:text-4xl">
                 Personal cargado
               </h1>
-              <p className="mt-1 text-sm text-slate-300/90">
+              <div className="gc-divider-gold mt-2" />
+              <p className="mt-2 text-sm text-slate-300/90">
                 Listado completo de cumpleaños guardados.
               </p>
             </div>
@@ -2193,7 +2185,7 @@ export default function PersonalCargadoPage() {
               {canManageRecords ? (
                 <div className="hidden items-center gap-2 sm:flex">
                   <CreateBirthdayEventButton
-                    buttonClassName="inline-flex h-11 items-center justify-center gap-2 rounded-full bg-sky-500 px-5 text-sm font-semibold text-slate-950 transition hover:bg-sky-400 disabled:cursor-not-allowed disabled:opacity-60"
+                    buttonClassName="gc-btn gc-btn-primary"
                     onCreated={() => {
                       setCurrentPage(1);
                       setReloadKey((prev) => prev + 1);
@@ -2206,7 +2198,7 @@ export default function PersonalCargadoPage() {
                       void runPerfilesGardenSync();
                     }}
                     title="Trae cumpleaños desde los legajos activos de Perfiles Garden."
-                    className="inline-flex h-11 items-center justify-center gap-2 rounded-full border border-emerald-300/35 bg-emerald-400/15 px-5 text-sm font-semibold text-emerald-100 transition hover:bg-emerald-400/20 disabled:cursor-not-allowed disabled:opacity-60"
+                    className="gc-btn gc-btn-success"
                   >
                     {isSyncingPerfilesGarden ? "Sincronizando..." : "Sincronizar con Perfiles Garden"}
                   </button>
@@ -2223,7 +2215,7 @@ export default function PersonalCargadoPage() {
               ) : !isLoadingSessionView &&
                 sessionRole === "CLIENTE" &&
                 canExitClientMode ? (
-                <ExitClientModeButton className="inline-flex h-11 items-center justify-center rounded-full border border-white/20 bg-white/10 px-5 text-sm font-semibold text-slate-100 shadow-sm transition hover:bg-white/15 disabled:cursor-not-allowed disabled:opacity-60" />
+                <ExitClientModeButton className="gc-btn gc-btn-ghost" />
               ) : null}
             </div>
           </div>
@@ -2231,7 +2223,7 @@ export default function PersonalCargadoPage() {
           {canManageRecords ? (
             <div className="relative z-0 mt-4 flex flex-col gap-2 sm:hidden">
               <CreateBirthdayEventButton
-                buttonClassName="inline-flex h-11 w-full items-center justify-center gap-2 rounded-full bg-sky-500 px-5 text-sm font-semibold text-slate-950 transition hover:bg-sky-400 disabled:cursor-not-allowed disabled:opacity-60"
+                buttonClassName="gc-btn gc-btn-primary w-full"
                 onCreated={() => {
                   setCurrentPage(1);
                   setReloadKey((prev) => prev + 1);
@@ -2243,7 +2235,7 @@ export default function PersonalCargadoPage() {
                 onClick={() => {
                   void runPerfilesGardenSync();
                 }}
-                className="inline-flex h-11 w-full items-center justify-center gap-2 rounded-full border border-emerald-300/35 bg-emerald-400/15 px-5 text-sm font-semibold text-emerald-100 transition hover:bg-emerald-400/20 disabled:cursor-not-allowed disabled:opacity-60"
+                className="gc-btn gc-btn-success w-full"
               >
                 {isSyncingPerfilesGarden ? "Sincronizando..." : "Sincronizar con Perfiles Garden"}
               </button>
@@ -2271,16 +2263,7 @@ export default function PersonalCargadoPage() {
           </p>
         ) : null}
 
-        <section className="relative z-10 overflow-visible rounded-2xl border border-white/25 bg-[linear-gradient(145deg,rgba(15,23,42,0.66)_0%,rgba(15,23,42,0.42)_100%)] p-4 shadow-[0_24px_52px_rgba(2,8,23,0.45)] backdrop-blur-md sm:p-5 lg:flex lg:min-h-0 lg:flex-1 lg:flex-col">
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute -right-16 -top-16 h-44 w-44 rounded-full bg-sky-300/18 blur-3xl"
-          />
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute -left-20 -bottom-20 h-52 w-52 rounded-full bg-indigo-300/10 blur-3xl"
-          />
-
+        <section className="gc-panel relative z-10 !overflow-visible !p-4 sm:!p-5 lg:flex lg:min-h-0 lg:flex-1 lg:flex-col">
           <div className="relative z-40 mb-3 flex flex-col gap-2 sm:flex-row sm:items-center">
             <label className="w-full sm:max-w-md">
               <span className="sr-only">Buscar personal cargado</span>
@@ -2326,7 +2309,7 @@ export default function PersonalCargadoPage() {
                     }
                   }}
                   placeholder="Buscar por nombre, apellido, área o turno"
-                  className="w-full rounded-xl border border-white/20 bg-slate-900/80 py-2 pl-9 pr-3 text-sm text-slate-100 outline-none ring-sky-300/50 placeholder:text-slate-400 focus:ring-2"
+                  className="gc-input !mt-0 pl-9"
                 />
 
                 {isSearchHistoryOpen && searchHistory.length > 0 ? (
@@ -2495,7 +2478,7 @@ export default function PersonalCargadoPage() {
                                 turno: nextCategory === "Gobierno" ? "" : prev.turno,
                               }));
                             }}
-                            className="w-full appearance-none rounded-xl border border-white/20 bg-slate-900/80 px-3 py-2 pr-10 text-sm text-slate-100 outline-none ring-sky-300/50 focus:ring-2"
+                            className="gc-select pr-10"
                           >
                             <option value="">Todas</option>
                             {PERSONAL_CATEGORIES.map((category) => (
@@ -2520,7 +2503,7 @@ export default function PersonalCargadoPage() {
                               }))
                             }
                             disabled={isRoleFilterDisabled}
-                            className="w-full appearance-none rounded-xl border border-white/20 bg-slate-900/80 px-3 py-2 pr-10 text-sm text-slate-100 outline-none ring-sky-300/50 focus:ring-2 disabled:cursor-not-allowed disabled:bg-slate-800/60 disabled:text-slate-400"
+                            className="gc-select pr-10"
                           >
                             <option value="">Todos</option>
                             {POLICIAL_ROLES.map((role) => (
@@ -2544,7 +2527,7 @@ export default function PersonalCargadoPage() {
                                 nameOrder: event.target.value as NameOrder | "",
                               }))
                             }
-                            className="w-full appearance-none rounded-xl border border-white/20 bg-slate-900/80 px-3 py-2 pr-10 text-sm text-slate-100 outline-none ring-sky-300/50 focus:ring-2"
+                            className="gc-select pr-10"
                           >
                             <option value="">Predeterminado</option>
                             <option value="asc">A-Z</option>
@@ -2581,7 +2564,7 @@ export default function PersonalCargadoPage() {
                                   nextMode === "monthDayRange" ? prev.dayMonthTo : "",
                               }));
                             }}
-                            className="w-full appearance-none rounded-xl border border-white/20 bg-slate-900/80 px-3 py-2 pr-10 text-sm text-slate-100 outline-none ring-sky-300/50 focus:ring-2"
+                            className="gc-select pr-10"
                           >
                             <option value="">Sin filtro</option>
                             <option value="thisMonth">Este mes</option>
@@ -2612,7 +2595,7 @@ export default function PersonalCargadoPage() {
                                     monthFrom: event.target.value,
                                   }))
                                 }
-                                className="w-full appearance-none rounded-xl border border-white/20 bg-slate-900/80 px-3 py-2 pr-10 text-sm text-slate-100 outline-none ring-sky-300/50 focus:ring-2"
+                                className="gc-select pr-10"
                               >
                                 <option value="">Elegir</option>
                                 {BIRTH_MONTH_OPTIONS.map((month) => (
@@ -2635,7 +2618,7 @@ export default function PersonalCargadoPage() {
                                     monthTo: event.target.value,
                                   }))
                                 }
-                                className="w-full appearance-none rounded-xl border border-white/20 bg-slate-900/80 px-3 py-2 pr-10 text-sm text-slate-100 outline-none ring-sky-300/50 focus:ring-2"
+                                className="gc-select pr-10"
                               >
                                 <option value="">Elegir</option>
                                 {BIRTH_MONTH_OPTIONS.map((month) => (
@@ -2666,7 +2649,7 @@ export default function PersonalCargadoPage() {
                                   yearFrom: event.target.value,
                                 }))
                               }
-                              className="mt-1 w-full rounded-xl border border-white/20 bg-slate-900/80 px-3 py-2 text-sm text-slate-100 outline-none ring-sky-300/50 focus:ring-2"
+                              className="gc-input"
                             />
                           </label>
                           <label className="text-xs font-semibold uppercase tracking-wide text-slate-300/85">
@@ -2683,7 +2666,7 @@ export default function PersonalCargadoPage() {
                                   yearTo: event.target.value,
                                 }))
                               }
-                              className="mt-1 w-full rounded-xl border border-white/20 bg-slate-900/80 px-3 py-2 text-sm text-slate-100 outline-none ring-sky-300/50 focus:ring-2"
+                              className="gc-input"
                             />
                           </label>
                         </div>
@@ -2702,7 +2685,7 @@ export default function PersonalCargadoPage() {
                                   dateFrom: event.target.value,
                                 }))
                               }
-                              className="mt-1 w-full rounded-xl border border-white/20 bg-slate-900/80 px-3 py-2 text-sm text-slate-100 outline-none ring-sky-300/50 focus:ring-2"
+                              className="gc-input"
                             />
                           </label>
                           <label className="text-xs font-semibold uppercase tracking-wide text-slate-300/85">
@@ -2716,7 +2699,7 @@ export default function PersonalCargadoPage() {
                                   dateTo: event.target.value,
                                 }))
                               }
-                              className="mt-1 w-full rounded-xl border border-white/20 bg-slate-900/80 px-3 py-2 text-sm text-slate-100 outline-none ring-sky-300/50 focus:ring-2"
+                              className="gc-input"
                             />
                           </label>
                         </div>
@@ -2759,7 +2742,7 @@ export default function PersonalCargadoPage() {
                                       };
                                     })
                                   }
-                                  className="w-full appearance-none rounded-xl border border-white/20 bg-slate-900/80 px-3 py-2 pr-10 text-sm text-slate-100 outline-none ring-sky-300/50 focus:ring-2"
+                                  className="gc-select pr-10"
                                 >
                                   <option value="">Elegir</option>
                                   {BIRTH_MONTH_OPTIONS.map((month) => (
@@ -2789,7 +2772,7 @@ export default function PersonalCargadoPage() {
                                     })
                                   }
                                   disabled={!fromMonthDayParts.month}
-                                  className="w-full appearance-none rounded-xl border border-white/20 bg-slate-900/80 px-3 py-2 pr-10 text-sm text-slate-100 outline-none ring-sky-300/50 focus:ring-2 disabled:cursor-not-allowed disabled:bg-slate-800/60 disabled:text-slate-400"
+                                  className="gc-select pr-10"
                                 >
                                   <option value="">Elegir</option>
                                   {fromDayOptions.map((day) => (
@@ -2838,7 +2821,7 @@ export default function PersonalCargadoPage() {
                                       };
                                     })
                                   }
-                                  className="w-full appearance-none rounded-xl border border-white/20 bg-slate-900/80 px-3 py-2 pr-10 text-sm text-slate-100 outline-none ring-sky-300/50 focus:ring-2"
+                                  className="gc-select pr-10"
                                 >
                                   <option value="">Elegir</option>
                                   {BIRTH_MONTH_OPTIONS.map((month) => (
@@ -2868,7 +2851,7 @@ export default function PersonalCargadoPage() {
                                     })
                                   }
                                   disabled={!toMonthDayParts.month}
-                                  className="w-full appearance-none rounded-xl border border-white/20 bg-slate-900/80 px-3 py-2 pr-10 text-sm text-slate-100 outline-none ring-sky-300/50 focus:ring-2 disabled:cursor-not-allowed disabled:bg-slate-800/60 disabled:text-slate-400"
+                                  className="gc-select pr-10"
                                 >
                                   <option value="">Elegir</option>
                                   {toDayOptions.map((day) => (
@@ -2913,7 +2896,7 @@ export default function PersonalCargadoPage() {
                                 }))
                               }
                               disabled={isAreaTurnoFilterDisabled}
-                              className="w-full appearance-none rounded-xl border border-white/20 bg-slate-900/80 px-3 py-2 pr-10 text-sm text-slate-100 outline-none ring-sky-300/50 focus:ring-2 disabled:cursor-not-allowed disabled:bg-slate-800/60 disabled:text-slate-400"
+                              className="gc-select pr-10"
                             >
                               <option value="">Todos</option>
                               {AREA_CATEGORIES.map((area) => (
@@ -2937,7 +2920,7 @@ export default function PersonalCargadoPage() {
                                 }))
                               }
                               disabled={isAreaTurnoFilterDisabled}
-                              className="w-full appearance-none rounded-xl border border-white/20 bg-slate-900/80 px-3 py-2 pr-10 text-sm text-slate-100 outline-none ring-sky-300/50 focus:ring-2 disabled:cursor-not-allowed disabled:bg-slate-800/60 disabled:text-slate-400"
+                              className="gc-select pr-10"
                             >
                               <option value="">Todos</option>
                               {TURNO_CATEGORIES.map((turno) => (
@@ -2974,7 +2957,7 @@ export default function PersonalCargadoPage() {
                         onClick={() => {
                           setIsFilterMenuOpen(false);
                         }}
-                        className="inline-flex h-9 items-center justify-center rounded-full border border-white/20 bg-white/10 px-3 text-xs font-semibold text-slate-100 transition hover:bg-white/15"
+                        className="gc-btn gc-btn-ghost !h-9 !px-3 !text-xs"
                       >
                         Cerrar
                       </button>
@@ -2982,7 +2965,7 @@ export default function PersonalCargadoPage() {
                         type="button"
                         onClick={clearFilters}
                         disabled={activeFilterCount === 0 && !hasPendingFilterChanges}
-                        className="inline-flex h-9 items-center justify-center rounded-full border border-white/20 bg-white/10 px-3 text-xs font-semibold text-slate-100 transition hover:bg-white/15 disabled:cursor-not-allowed disabled:opacity-55"
+                        className="gc-btn gc-btn-ghost !h-9 !px-3 !text-xs"
                       >
                         Limpiar
                       </button>
@@ -3012,7 +2995,7 @@ export default function PersonalCargadoPage() {
                     setCurrentPage(1);
                     setIsSearchHistoryOpen(false);
                   }}
-                  className="inline-flex h-10 items-center justify-center rounded-full border border-white/20 bg-white/10 px-4 text-sm font-semibold text-slate-100 transition hover:bg-white/15"
+                  className="gc-btn gc-btn-ghost !h-10"
                 >
                   Limpiar
                 </button>
@@ -3115,7 +3098,7 @@ export default function PersonalCargadoPage() {
                         onClick={() => {
                           void removeRecord(person.id);
                         }}
-                        className="inline-flex rounded-full border border-red-300/35 bg-red-400/15 px-3 py-1 text-xs font-semibold text-red-100 transition hover:bg-red-400/20 disabled:cursor-not-allowed disabled:opacity-60"
+                        className="gc-btn gc-btn-danger !h-auto !px-3 !py-1 !text-xs"
                       >
                         {deletingId === person.id ? "Eliminando..." : "Eliminar"}
                       </button>
@@ -3131,7 +3114,7 @@ export default function PersonalCargadoPage() {
                   type="button"
                   disabled={currentPage <= 1 || isLoadingRecords}
                   onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
-                  className="inline-flex h-9 items-center justify-center rounded-full border border-white/20 bg-white/10 px-3 text-xs font-semibold text-slate-100 transition hover:bg-white/15 disabled:cursor-not-allowed disabled:opacity-55"
+                  className="gc-btn gc-btn-ghost !h-9 !px-3 !text-xs"
                 >
                   Anterior
                 </button>
@@ -3167,7 +3150,7 @@ export default function PersonalCargadoPage() {
                   onClick={() =>
                     setCurrentPage((prev) => Math.min(prev + 1, totalPages))
                   }
-                  className="inline-flex h-9 items-center justify-center rounded-full border border-white/20 bg-white/10 px-3 text-xs font-semibold text-slate-100 transition hover:bg-white/15 disabled:cursor-not-allowed disabled:opacity-55"
+                  className="gc-btn gc-btn-ghost !h-9 !px-3 !text-xs"
                 >
                   Siguiente
                 </button>
@@ -3179,7 +3162,7 @@ export default function PersonalCargadoPage() {
 
         {canManageRecords && editingRecord ? (
           <div className="fixed inset-0 z-50 flex items-center justify-center overflow-y-auto bg-black/45 p-4">
-            <div className="w-full max-w-2xl rounded-2xl border border-white/20 bg-[linear-gradient(140deg,rgba(15,23,42,0.86)_0%,rgba(15,23,42,0.74)_100%)] p-6 text-slate-100 shadow-[0_28px_60px_rgba(2,8,23,0.55)] backdrop-blur-md lg:max-h-[calc(100vh-2rem)] lg:overflow-y-auto">
+            <div className="gc-panel w-full max-w-2xl !p-6 text-slate-100 lg:max-h-[calc(100vh-2rem)] lg:overflow-y-auto">
               <div className="flex items-start justify-between gap-3">
                 <div>
                   <h2 className="text-xl font-bold text-slate-100">
@@ -3209,7 +3192,7 @@ export default function PersonalCargadoPage() {
                       onChange={(event) =>
                         setEditFirstName(sanitizePersonNameInput(event.target.value))
                       }
-                      className="mt-1 w-full rounded-xl border border-white/20 bg-slate-900/80 px-3 py-2 text-sm text-slate-100 outline-none ring-sky-300/50 placeholder:text-slate-400 focus:ring-2"
+                      className="gc-input"
                       placeholder="Ej: María"
                       disabled={isUpdating}
                     />
@@ -3223,7 +3206,7 @@ export default function PersonalCargadoPage() {
                       onChange={(event) =>
                         setEditLastName(sanitizePersonNameInput(event.target.value))
                       }
-                      className="mt-1 w-full rounded-xl border border-white/20 bg-slate-900/80 px-3 py-2 text-sm text-slate-100 outline-none ring-sky-300/50 placeholder:text-slate-400 focus:ring-2"
+                      className="gc-input"
                       placeholder="Ej: Pérez"
                       disabled={isUpdating}
                     />
@@ -3247,7 +3230,7 @@ export default function PersonalCargadoPage() {
                           setEditPolicialRole("");
                         }
                       }}
-                      className="w-full appearance-none rounded-xl border border-white/20 bg-slate-900/80 px-3 py-2 pr-10 text-sm text-slate-100 outline-none ring-sky-300/50 focus:ring-2"
+                      className="gc-select pr-10"
                       disabled={isUpdating}
                     >
                       {PERSONAL_CATEGORIES.map((category) => (
@@ -3269,7 +3252,7 @@ export default function PersonalCargadoPage() {
                         onChange={(event) =>
                           setEditPolicialRole(event.target.value as SelectedPolicialRole)
                         }
-                        className="w-full appearance-none rounded-xl border border-white/20 bg-slate-900/80 px-3 py-2 pr-10 text-sm text-slate-100 outline-none ring-sky-300/50 focus:ring-2"
+                        className="gc-select pr-10"
                         disabled={isUpdating}
                       >
                         <option value="" disabled hidden>
@@ -3296,7 +3279,7 @@ export default function PersonalCargadoPage() {
                         onChange={(event) =>
                           setEditOficialCategory(event.target.value as OficialCategory)
                         }
-                        className="w-full appearance-none rounded-xl border border-white/20 bg-slate-900/80 px-3 py-2 pr-10 text-sm text-slate-100 outline-none ring-sky-300/50 focus:ring-2"
+                        className="gc-select pr-10"
                         disabled={isUpdating}
                       >
                         {OFICIAL_CATEGORIES.map((category) => (
@@ -3325,7 +3308,7 @@ export default function PersonalCargadoPage() {
                             event.target.value as SuboficialCategory
                           )
                         }
-                        className="w-full appearance-none rounded-xl border border-white/20 bg-slate-900/80 px-3 py-2 pr-10 text-sm text-slate-100 outline-none ring-sky-300/50 focus:ring-2"
+                        className="gc-select pr-10"
                         disabled={isUpdating}
                       >
                         {SUBOFICIAL_CATEGORIES.map((category) => (
@@ -3347,7 +3330,7 @@ export default function PersonalCargadoPage() {
                         <select
                           value={editArea}
                           onChange={(event) => setEditArea(event.target.value)}
-                          className="w-full appearance-none rounded-xl border border-white/20 bg-slate-900/80 px-3 py-2 pr-10 text-sm text-slate-100 outline-none ring-sky-300/50 focus:ring-2"
+                          className="gc-select pr-10"
                           disabled={isUpdating}
                         >
                           <option value="" disabled hidden>
@@ -3372,7 +3355,7 @@ export default function PersonalCargadoPage() {
                         <select
                           value={editTurno}
                           onChange={(event) => setEditTurno(event.target.value)}
-                          className="w-full appearance-none rounded-xl border border-white/20 bg-slate-900/80 px-3 py-2 pr-10 text-sm text-slate-100 outline-none ring-sky-300/50 focus:ring-2"
+                          className="gc-select pr-10"
                           disabled={isUpdating}
                         >
                           <option value="" disabled hidden>
@@ -3399,7 +3382,7 @@ export default function PersonalCargadoPage() {
                     type="date"
                     value={editBirthDate}
                     onChange={(event) => setEditBirthDate(event.target.value)}
-                    className="mt-1 w-full rounded-xl border border-white/20 bg-slate-900/80 px-3 py-2 text-sm text-slate-100 outline-none ring-sky-300/50 focus:ring-2"
+                    className="gc-input"
                     disabled={isUpdating}
                   />
                 </label>
@@ -3408,7 +3391,7 @@ export default function PersonalCargadoPage() {
                   <button
                     type="submit"
                     disabled={isUpdating}
-                    className="inline-flex rounded-full bg-sky-500 px-5 py-2 text-sm font-semibold text-slate-950 transition hover:bg-sky-400 disabled:cursor-not-allowed disabled:opacity-60"
+                    className="gc-btn gc-btn-primary"
                   >
                     {isUpdating ? "Actualizando..." : "Guardar cambios"}
                   </button>
@@ -3416,7 +3399,7 @@ export default function PersonalCargadoPage() {
                     type="button"
                     onClick={closeEditModal}
                     disabled={isUpdating}
-                    className="inline-flex rounded-full border border-white/20 bg-white/10 px-5 py-2 text-sm font-semibold text-slate-100 transition hover:bg-white/15 disabled:cursor-not-allowed disabled:opacity-60"
+                    className="gc-btn gc-btn-ghost"
                   >
                     Cancelar
                   </button>
@@ -3440,7 +3423,7 @@ export default function PersonalCargadoPage() {
 
         {canManageRecords && confirmationState ? (
           <div className="fixed inset-0 z-[60] flex items-center justify-center bg-black/45 p-4">
-            <div className="w-full max-w-md rounded-2xl border border-white/20 bg-[linear-gradient(140deg,rgba(15,23,42,0.86)_0%,rgba(15,23,42,0.74)_100%)] p-5 text-slate-100 shadow-[0_28px_60px_rgba(2,8,23,0.55)] backdrop-blur-md">
+            <div className="gc-panel w-full max-w-md !p-5 text-slate-100">
               <h3 className="text-lg font-bold text-slate-100">
                 {confirmationState.title}
               </h3>
@@ -3453,7 +3436,7 @@ export default function PersonalCargadoPage() {
                   type="button"
                   onClick={() => resolveConfirmation(false)}
                   disabled={isConfirmProcessing}
-                  className="inline-flex rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm font-semibold text-slate-100 transition hover:bg-white/15 disabled:cursor-not-allowed disabled:opacity-60"
+                  className="gc-btn gc-btn-ghost"
                 >
                   Cancelar
                 </button>
@@ -3478,7 +3461,7 @@ export default function PersonalCargadoPage() {
 
         {isDownloadPreviewOpen ? (
           <div className="fixed inset-0 z-[65] flex items-center justify-center bg-black/45 p-4">
-            <div className="w-full max-w-lg rounded-2xl border border-white/20 bg-[linear-gradient(140deg,rgba(15,23,42,0.86)_0%,rgba(15,23,42,0.74)_100%)] p-5 text-slate-100 shadow-[0_28px_60px_rgba(2,8,23,0.55)] backdrop-blur-md">
+            <div className="gc-panel w-full max-w-lg !p-5 text-slate-100">
               <h3 className="text-lg font-bold text-slate-100">
                 Descargar listado filtrado
               </h3>
@@ -3534,7 +3517,7 @@ export default function PersonalCargadoPage() {
                   type="button"
                   onClick={closeDownloadPreviewModal}
                   disabled={isDownloadingFiltered}
-                  className="inline-flex rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm font-semibold text-slate-100 transition hover:bg-white/15 disabled:cursor-not-allowed disabled:opacity-60"
+                  className="gc-btn gc-btn-ghost"
                 >
                   Cancelar
                 </button>
@@ -3549,7 +3532,7 @@ export default function PersonalCargadoPage() {
                     !!downloadPreviewError ||
                     (downloadPreviewInfo ? downloadPreviewInfo.totalMatches <= 0 : false)
                   }
-                  className="relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-sky-500 px-4 py-2 text-sm font-semibold text-slate-950 transition hover:bg-sky-400 disabled:cursor-not-allowed disabled:opacity-60"
+                  className="gc-btn gc-btn-primary relative overflow-hidden"
                 >
                   {isDownloadingFiltered ? (
                     <span

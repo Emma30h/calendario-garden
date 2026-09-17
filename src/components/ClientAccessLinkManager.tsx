@@ -114,16 +114,7 @@ export default function ClientAccessLinkManager() {
         </div>
       ) : null}
 
-      <section className="relative z-10 overflow-hidden rounded-2xl border border-white/25 bg-[linear-gradient(145deg,rgba(15,23,42,0.66)_0%,rgba(15,23,42,0.42)_100%)] p-4 shadow-[0_24px_52px_rgba(2,8,23,0.45)] backdrop-blur-md sm:p-5">
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute -right-16 -top-16 h-44 w-44 rounded-full bg-sky-300/18 blur-3xl"
-        />
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute -left-20 -bottom-20 h-52 w-52 rounded-full bg-indigo-300/10 blur-3xl"
-        />
-
+      <section className="gc-panel relative z-10 !p-4 sm:!p-5">
         <h2 className="relative z-10 text-lg font-bold text-slate-100">Acceso cliente por link o QR</h2>
         <p className="relative z-10 mt-1 text-sm text-slate-300/90">
           Este es el link fijo de acceso cliente. Abre el calendario anual.
@@ -136,7 +127,7 @@ export default function ClientAccessLinkManager() {
               void handleCopyLink();
             }}
             disabled={!accessUrl}
-            className="inline-flex rounded-full border border-sky-300/35 bg-sky-400/25 px-5 py-2 text-sm font-semibold text-sky-100 transition hover:bg-sky-400/32 disabled:cursor-not-allowed disabled:opacity-60"
+            className="gc-btn gc-btn-accent"
           >
             Copiar link
           </button>
@@ -186,7 +177,7 @@ export default function ClientAccessLinkManager() {
                 void handleDownloadQr();
               }}
               disabled={isDownloadingQr}
-              className="mt-3 inline-flex w-full items-center justify-center rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm font-semibold text-slate-100 transition hover:bg-white/15 disabled:cursor-not-allowed disabled:opacity-60"
+              className="gc-btn gc-btn-ghost mt-3 w-full"
             >
               {isDownloadingQr ? "Descargando..." : "Descargar QR (imagen)"}
             </button>

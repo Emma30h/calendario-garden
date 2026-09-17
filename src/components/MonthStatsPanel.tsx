@@ -12,7 +12,7 @@ type MonthStatsPanelProps = {
 function MonthStatsSectionSkeleton() {
   return (
     <div
-      className="mt-3 rounded-2xl border border-white/20 bg-black/20 p-4 shadow-xl shadow-black/30 backdrop-blur-sm sm:p-5"
+      className="gc-panel gc-panel--compact mt-3"
       aria-busy="true"
       aria-label="Cargando datos estadísticos"
     >
@@ -107,16 +107,7 @@ export default function MonthStatsPanel({
 
   return (
     <>
-      <section className="relative overflow-hidden rounded-3xl border border-white/20 bg-[linear-gradient(145deg,rgba(15,23,42,0.68)_0%,rgba(15,23,42,0.44)_100%)] p-4 shadow-[0_24px_52px_rgba(2,8,23,0.45)] backdrop-blur-md sm:p-5 lg:p-4">
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -right-20 -top-24 h-56 w-56 rounded-full bg-sky-300/18 blur-3xl"
-      />
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -left-24 -bottom-28 h-56 w-56 rounded-full bg-indigo-300/10 blur-3xl"
-      />
-
+      <section className="gc-panel !p-4 sm:!p-5 lg:!p-4">
       <button
         type="button"
         onClick={handleToggle}

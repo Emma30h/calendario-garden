@@ -442,7 +442,7 @@ function OtpDigitInput({
           }}
           disabled={disabled}
           aria-label={`Digito ${index + 1} de ${OTP_LENGTH}`}
-          className="h-12 w-full rounded-xl border border-white/25 bg-slate-950/45 text-center text-lg font-semibold tracking-wide text-slate-100 outline-none ring-sky-300/40 transition focus:ring-2 sm:h-14 sm:text-xl disabled:cursor-not-allowed disabled:bg-slate-900/50"
+          className="gc-input h-12 text-center text-lg font-semibold tracking-wide sm:h-14 sm:text-xl"
         />
       ))}
     </div>
@@ -1275,14 +1275,15 @@ export default function LoginPage() {
       }`}
     >
       <div
-        className={`mx-auto w-full min-w-0 max-w-[calc(100vw-1.5rem)] rounded-3xl border border-white/20 bg-black/20 p-4 shadow-xl shadow-black/35 backdrop-blur-sm sm:max-w-xl sm:p-8 ${
-          isSignupMode ? "md:p-5" : ""
+        className={`gc-panel mx-auto w-full min-w-0 max-w-[calc(100vw-1.5rem)] !p-4 sm:max-w-xl sm:!p-8 ${
+          isSignupMode ? "md:!p-5" : ""
         }`}
       >
         <header className={`mb-5 ${isSignupMode ? "md:mb-3" : ""}`}>
           <h1 className="text-2xl font-bold text-slate-100 sm:text-3xl">
             Acceso Calendario Garden
           </h1>
+          <div className="gc-divider-gold mt-2" />
         </header>
 
         {isLoadingBootstrap ? (
@@ -1315,11 +1316,7 @@ export default function LoginPage() {
                     onChange={(event) => setEmail(event.target.value)}
                     autoComplete="email"
                     aria-invalid={emailInputError ? true : undefined}
-                    className={`mt-1 w-full rounded-xl border bg-slate-950/45 px-3 py-2 text-sm text-slate-100 outline-none focus:ring-2 ${
-                      emailInputError
-                        ? "border-red-500 ring-red-500"
-                        : "border-white/25 ring-sky-300/40"
-                    }`}
+                    className={`gc-input ${emailInputError ? "gc-input-error" : ""}`}
                     placeholder="ejemplo@correo.com"
                     disabled={isSubmitting}
                   />
@@ -1336,7 +1333,7 @@ export default function LoginPage() {
                       value={password}
                       onChange={(event) => setPassword(event.target.value)}
                       autoComplete="current-password"
-                      className="hide-password-reveal w-full rounded-xl border border-white/25 bg-slate-950/45 px-3 py-2 pr-12 text-sm text-slate-100 outline-none ring-sky-300/40 focus:ring-2"
+                      className="gc-input hide-password-reveal pr-12"
                       disabled={isSubmitting}
                     />
                     <button
@@ -1372,7 +1369,7 @@ export default function LoginPage() {
                   <button
                     type="submit"
                     disabled={isSubmitting || !isLoginReady}
-                    className="inline-flex w-full justify-center rounded-full bg-sky-500 px-5 py-2 text-sm font-semibold text-white transition hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-60"
+                    className="gc-btn gc-btn-primary w-full"
                   >
                     {isSubmitting ? "Ingresando..." : "Iniciar sesión"}
                   </button>
@@ -1412,7 +1409,7 @@ export default function LoginPage() {
                     value={firstName}
                     onChange={(event) => setFirstName(event.target.value)}
                     autoComplete="given-name"
-                    className="mt-1 w-full rounded-xl border border-white/25 bg-slate-900/55 px-3 py-2 text-sm text-slate-100 outline-none ring-sky-300/40 focus:ring-2 [&>option]:bg-slate-100 [&>option]:text-slate-900"
+                    className="gc-input"
                     placeholder="Ej: Maria"
                     disabled={isSubmitting}
                   />
@@ -1425,7 +1422,7 @@ export default function LoginPage() {
                     value={lastName}
                     onChange={(event) => setLastName(event.target.value)}
                     autoComplete="family-name"
-                    className="mt-1 w-full rounded-xl border border-white/25 bg-slate-950/45 px-3 py-2 text-sm text-slate-100 outline-none ring-sky-300/40 focus:ring-2"
+                    className="gc-input"
                     placeholder="Ej: Perez"
                     disabled={isSubmitting}
                   />
@@ -1439,7 +1436,7 @@ export default function LoginPage() {
                       onChange={(event) => {
                         setPersonalType(event.target.value as SignupPersonalType | "");
                       }}
-                      className="w-full appearance-none rounded-xl border border-white/30 bg-[linear-gradient(180deg,rgba(15,23,42,0.62)_0%,rgba(15,23,42,0.45)_100%)] px-3 py-2 pr-10 text-sm text-slate-100 shadow-[inset_0_1px_0_rgba(255,255,255,0.12)] outline-none ring-sky-300/40 transition focus:border-sky-300/60 focus:ring-2 disabled:cursor-not-allowed disabled:border-white/15 disabled:bg-slate-900/40 disabled:text-slate-400/65 [&>option]:bg-slate-900 [&>option]:text-slate-100"
+                      className="gc-select pr-10 [&>option]:bg-slate-900 [&>option]:text-slate-100"
                       disabled={isSubmitting}
                     >
                       <option value="" disabled hidden>
@@ -1478,7 +1475,7 @@ export default function LoginPage() {
                     <select
                       value={hierarchy}
                       onChange={(event) => setHierarchy(event.target.value)}
-                      className="w-full appearance-none rounded-xl border border-white/30 bg-[linear-gradient(180deg,rgba(15,23,42,0.62)_0%,rgba(15,23,42,0.45)_100%)] px-3 py-2 pr-10 text-sm text-slate-100 shadow-[inset_0_1px_0_rgba(255,255,255,0.12)] outline-none ring-sky-300/40 transition focus:border-sky-300/60 focus:ring-2 disabled:cursor-not-allowed disabled:border-white/15 disabled:bg-slate-900/40 disabled:text-slate-400/65 [&>option]:bg-slate-900 [&>option]:text-slate-100"
+                      className="gc-select pr-10 [&>option]:bg-slate-900 [&>option]:text-slate-100"
                       disabled={
                         isSubmitting ||
                         !requiresHierarchy ||
@@ -1525,7 +1522,7 @@ export default function LoginPage() {
                     <select
                       value={area}
                       onChange={(event) => setArea(event.target.value)}
-                      className="w-full appearance-none rounded-xl border border-white/30 bg-[linear-gradient(180deg,rgba(15,23,42,0.62)_0%,rgba(15,23,42,0.45)_100%)] px-3 py-2 pr-10 text-sm text-slate-100 shadow-[inset_0_1px_0_rgba(255,255,255,0.12)] outline-none ring-sky-300/40 transition focus:border-sky-300/60 focus:ring-2 disabled:cursor-not-allowed disabled:border-white/15 disabled:bg-slate-900/40 disabled:text-slate-400/65 [&>option]:bg-slate-900 [&>option]:text-slate-100"
+                      className="gc-select pr-10 [&>option]:bg-slate-900 [&>option]:text-slate-100"
                       disabled={isSubmitting}
                     >
                       <option value="" disabled hidden>
@@ -1566,11 +1563,7 @@ export default function LoginPage() {
                     onChange={(event) => setEmail(event.target.value)}
                     autoComplete="email"
                     aria-invalid={emailInputError ? true : undefined}
-                    className={`mt-1 w-full rounded-xl border bg-slate-950/45 px-3 py-2 text-sm text-slate-100 outline-none focus:ring-2 ${
-                      emailInputError
-                        ? "border-red-500 ring-red-500"
-                        : "border-white/25 ring-sky-300/40"
-                    }`}
+                    className={`gc-input ${emailInputError ? "gc-input-error" : ""}`}
                     placeholder="usuario@correo.com"
                     disabled={isSubmitting}
                   />
@@ -1587,7 +1580,7 @@ export default function LoginPage() {
                       value={password}
                       onChange={(event) => setPassword(event.target.value)}
                       autoComplete="new-password"
-                      className="hide-password-reveal w-full rounded-xl border border-white/25 bg-slate-950/45 px-3 py-2 pr-12 text-sm text-slate-100 outline-none ring-sky-300/40 focus:ring-2"
+                      className="gc-input hide-password-reveal pr-12"
                       disabled={isSubmitting}
                     />
                     <button
@@ -1671,7 +1664,7 @@ export default function LoginPage() {
                       value={confirmPassword}
                       onChange={(event) => setConfirmPassword(event.target.value)}
                       autoComplete="new-password"
-                      className="hide-password-reveal w-full rounded-xl border border-white/25 bg-slate-950/45 px-3 py-2 pr-12 text-sm text-slate-100 outline-none ring-sky-300/40 focus:ring-2"
+                      className="gc-input hide-password-reveal pr-12"
                       disabled={isSubmitting}
                     />
                     <button
@@ -1709,7 +1702,7 @@ export default function LoginPage() {
                   <button
                     type="submit"
                     disabled={isSubmitting || !isSignupReady}
-                    className="relative inline-flex w-full justify-center overflow-hidden rounded-full bg-sky-500 px-5 py-2 text-sm font-semibold text-white transition hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-60"
+                    className="gc-btn gc-btn-primary relative w-full overflow-hidden"
                   >
                     {isSubmitting ? (
                       <span
@@ -1760,11 +1753,7 @@ export default function LoginPage() {
                     onChange={(event) => setEmail(event.target.value)}
                     autoComplete="email"
                     aria-invalid={emailInputError ? true : undefined}
-                    className={`mt-1 w-full rounded-xl border bg-slate-950/45 px-3 py-2 text-sm text-slate-100 outline-none focus:ring-2 ${
-                      emailInputError
-                        ? "border-red-500 ring-red-500"
-                        : "border-white/25 ring-sky-300/40"
-                    }`}
+                    className={`gc-input ${emailInputError ? "gc-input-error" : ""}`}
                     placeholder="ejemplo@correo.com"
                     disabled={isSubmitting}
                   />
@@ -1777,7 +1766,7 @@ export default function LoginPage() {
                   <button
                     type="submit"
                     disabled={isSubmitting || !isEmailValid}
-                    className="inline-flex rounded-full bg-sky-500 px-5 py-2 text-sm font-semibold text-white transition hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-60"
+                    className="gc-btn gc-btn-primary"
                   >
                     {isSubmitting ? "Enviando..." : "Enviar código"}
                   </button>
@@ -1790,7 +1779,7 @@ export default function LoginPage() {
                       setDevOtpCode(null);
                       resetPasswordRecoveryState();
                     }}
-                    className="inline-flex rounded-full border border-white/25 bg-white/10 px-5 py-2 text-sm font-semibold text-slate-100/90 transition hover:bg-white/10"
+                    className="gc-btn gc-btn-ghost"
                   >
                     Volver a login
                   </button>
@@ -1843,7 +1832,7 @@ export default function LoginPage() {
                       value={resetPassword}
                       onChange={(event) => setResetPassword(event.target.value)}
                       autoComplete="new-password"
-                      className="hide-password-reveal w-full rounded-xl border border-white/25 bg-slate-950/45 px-3 py-2 pr-12 text-sm text-slate-100 outline-none ring-sky-300/40 focus:ring-2"
+                      className="gc-input hide-password-reveal pr-12"
                       disabled={isSubmitting || !isResetOtpValidated}
                     />
                     <button
@@ -1927,7 +1916,7 @@ export default function LoginPage() {
                       value={resetConfirmPassword}
                       onChange={(event) => setResetConfirmPassword(event.target.value)}
                       autoComplete="new-password"
-                      className="hide-password-reveal w-full rounded-xl border border-white/25 bg-slate-950/45 px-3 py-2 pr-12 text-sm text-slate-100 outline-none ring-sky-300/40 focus:ring-2"
+                      className="gc-input hide-password-reveal pr-12"
                       disabled={isSubmitting || !isResetOtpValidated}
                     />
                     <button
@@ -1966,7 +1955,7 @@ export default function LoginPage() {
                       isSubmitting ||
                       (isResetOtpValidated ? !isResetPasswordReady : !isResetOtpReady)
                     }
-                    className="inline-flex justify-center rounded-full bg-sky-500 px-5 py-2 text-sm font-semibold text-white transition hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-60"
+                    className="gc-btn gc-btn-primary"
                   >
                     {isSubmitting
                       ? isResetOtpValidated
@@ -1982,7 +1971,7 @@ export default function LoginPage() {
                     onClick={() => {
                       void handleResendPasswordResetOtp();
                     }}
-                    className="inline-flex justify-center rounded-full border border-white/25 bg-white/10 px-5 py-2 text-sm font-semibold text-slate-100/90 transition hover:bg-white/10 disabled:cursor-not-allowed disabled:opacity-60"
+                    className="gc-btn gc-btn-ghost"
                   >
                     {isResendingOtp
                       ? "Enviando..."
@@ -1999,7 +1988,7 @@ export default function LoginPage() {
                       setDevOtpCode(null);
                       resetPasswordRecoveryState();
                     }}
-                    className="inline-flex justify-center rounded-full border border-white/25 bg-white/10 px-5 py-2 text-sm font-semibold text-slate-100/90 transition hover:bg-white/10"
+                    className="gc-btn gc-btn-ghost"
                   >
                     Volver a login
                   </button>
@@ -2034,7 +2023,7 @@ export default function LoginPage() {
                   <button
                     type="submit"
                     disabled={isSubmitting || otpCode.length !== OTP_LENGTH}
-                    className="inline-flex justify-center rounded-full bg-sky-500 px-5 py-2 text-sm font-semibold text-white transition hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-60"
+                    className="gc-btn gc-btn-primary"
                   >
                     {isSubmitting ? "Verificando..." : "Validar código"}
                   </button>
@@ -2044,7 +2033,7 @@ export default function LoginPage() {
                     onClick={() => {
                       void handleResendOtp();
                     }}
-                    className="inline-flex justify-center rounded-full border border-white/25 bg-white/10 px-5 py-2 text-sm font-semibold text-slate-100/90 transition hover:bg-white/10 disabled:cursor-not-allowed disabled:opacity-60"
+                    className="gc-btn gc-btn-ghost"
                   >
                     {isResendingOtp
                       ? "Enviando..."
@@ -2061,7 +2050,7 @@ export default function LoginPage() {
                       setDevOtpCode(null);
                       resetPasswordRecoveryState();
                     }}
-                    className="inline-flex justify-center rounded-full border border-white/25 bg-white/10 px-5 py-2 text-sm font-semibold text-slate-100/90 transition hover:bg-white/10"
+                    className="gc-btn gc-btn-ghost"
                   >
                     Volver a login
                   </button>

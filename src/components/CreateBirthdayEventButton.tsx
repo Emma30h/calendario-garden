@@ -448,8 +448,7 @@ export default function CreateBirthdayEventButton({
   }
 
   const resolvedButtonClassName =
-    buttonClassName ??
-    "inline-flex h-11 items-center justify-center gap-2 rounded-full border border-sky-300/35 bg-sky-400/28 px-4 text-sm font-semibold text-sky-100 shadow-[0_10px_24px_rgba(2,8,23,0.28)] transition hover:bg-sky-400/36 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-200/60 disabled:cursor-not-allowed disabled:opacity-60";
+    buttonClassName ?? "gc-btn gc-btn-accent";
   const isGovernmentPersonal = personalCategory === "Gobierno";
 
   return (
@@ -478,16 +477,7 @@ export default function CreateBirthdayEventButton({
 
       {isPortalReady && isOpen ? createPortal(
         <div className="fixed inset-0 z-[70] flex items-center justify-center overflow-y-auto bg-slate-950/65 p-4 backdrop-blur-[1.5px]">
-          <div className="relative w-full max-w-xl overflow-hidden rounded-2xl border border-sky-200/20 bg-[linear-gradient(140deg,rgba(15,23,42,0.9)_0%,rgba(15,23,42,0.78)_100%)] p-6 text-slate-100 shadow-[0_28px_60px_rgba(2,8,23,0.55)] backdrop-blur-md">
-            <div
-              aria-hidden="true"
-              className="pointer-events-none absolute -right-14 -top-16 h-40 w-40 rounded-full bg-sky-300/18 blur-3xl"
-            />
-            <div
-              aria-hidden="true"
-              className="pointer-events-none absolute -left-20 -bottom-24 h-48 w-48 rounded-full bg-indigo-300/10 blur-3xl"
-            />
-
+          <div className="gc-panel relative w-full max-w-xl !p-6 text-slate-100">
             <div className="flex items-start justify-between gap-3">
               <div>
                 <h2 className="text-xl font-bold text-slate-100">
@@ -533,7 +523,7 @@ export default function CreateBirthdayEventButton({
                       onChange={(event) =>
                         setFirstName(sanitizePersonNameInput(event.target.value))
                       }
-                      className="mt-1 w-full rounded-xl border border-white/20 bg-slate-900/80 px-3 py-2 text-sm text-slate-100 outline-none ring-sky-300/50 placeholder:text-slate-400 focus:ring-2"
+                      className="gc-input"
                       placeholder="Ej: María"
                     />
                   </label>
@@ -546,7 +536,7 @@ export default function CreateBirthdayEventButton({
                       onChange={(event) =>
                         setLastName(sanitizePersonNameInput(event.target.value))
                       }
-                      className="mt-1 w-full rounded-xl border border-white/20 bg-slate-900/80 px-3 py-2 text-sm text-slate-100 outline-none ring-sky-300/50 placeholder:text-slate-400 focus:ring-2"
+                      className="gc-input"
                       placeholder="Ej: Pérez"
                     />
                   </label>
@@ -560,7 +550,7 @@ export default function CreateBirthdayEventButton({
                       onChange={(event) =>
                         setPersonalCategory(event.target.value as PersonalCategory)
                       }
-                      className="w-full appearance-none rounded-xl border border-white/20 bg-slate-900/80 px-3 py-2 pr-10 text-sm text-slate-100 outline-none ring-sky-300/50 focus:ring-2"
+                      className="gc-select pr-10"
                     >
                       {PERSONAL_CATEGORIES.map((category) => (
                         <option key={category} value={category}>
@@ -582,7 +572,7 @@ export default function CreateBirthdayEventButton({
                           setPolicialRole(event.target.value as SelectedPolicialRole)
                         }
                         required
-                        className="w-full appearance-none rounded-xl border border-white/20 bg-slate-900/80 px-3 py-2 pr-10 text-sm text-slate-100 outline-none ring-sky-300/50 focus:ring-2"
+                        className="gc-select pr-10"
                       >
                         <option value="" disabled hidden>
                           Elegí tipo de personal policial
@@ -607,7 +597,7 @@ export default function CreateBirthdayEventButton({
                         onChange={(event) =>
                           setOficialCategory(event.target.value as OficialCategory)
                         }
-                        className="w-full appearance-none rounded-xl border border-white/20 bg-slate-900/80 px-3 py-2 pr-10 text-sm text-slate-100 outline-none ring-sky-300/50 focus:ring-2"
+                        className="gc-select pr-10"
                       >
                         {OFICIAL_CATEGORIES.map((category) => (
                           <option key={category} value={category}>
@@ -634,7 +624,7 @@ export default function CreateBirthdayEventButton({
                             event.target.value as SuboficialCategory
                           )
                         }
-                        className="w-full appearance-none rounded-xl border border-white/20 bg-slate-900/80 px-3 py-2 pr-10 text-sm text-slate-100 outline-none ring-sky-300/50 focus:ring-2"
+                        className="gc-select pr-10"
                       >
                         {SUBOFICIAL_CATEGORIES.map((category) => (
                           <option key={category} value={category}>
@@ -657,7 +647,7 @@ export default function CreateBirthdayEventButton({
                       }
                       required={!isGovernmentPersonal}
                       disabled={isGovernmentPersonal}
-                      className="w-full appearance-none rounded-xl border border-white/20 bg-slate-900/80 px-3 py-2 pr-10 text-sm text-slate-100 outline-none ring-sky-300/50 focus:ring-2 disabled:cursor-not-allowed disabled:bg-slate-800/60 disabled:text-slate-400"
+                      className="gc-select pr-10"
                     >
                       {isGovernmentPersonal ? (
                         <option value="">No aplica para Gobierno</option>
@@ -686,7 +676,7 @@ export default function CreateBirthdayEventButton({
                       }
                       required={!isGovernmentPersonal}
                       disabled={isGovernmentPersonal}
-                      className="w-full appearance-none rounded-xl border border-white/20 bg-slate-900/80 px-3 py-2 pr-10 text-sm text-slate-100 outline-none ring-sky-300/50 focus:ring-2 disabled:cursor-not-allowed disabled:bg-slate-800/60 disabled:text-slate-400"
+                      className="gc-select pr-10"
                     >
                       {isGovernmentPersonal ? (
                         <option value="">No aplica para Gobierno</option>
@@ -711,13 +701,13 @@ export default function CreateBirthdayEventButton({
                     type="date"
                     value={birthDate}
                     onChange={(event) => setBirthDate(event.target.value)}
-                    className="mt-1 w-full rounded-xl border border-white/20 bg-slate-900/80 px-3 py-2 text-sm text-slate-100 outline-none ring-sky-300/50 focus:ring-2"
+                    className="gc-input"
                   />
                 </label>
 
                 <button
                   type="submit"
-                  className="inline-flex rounded-full bg-sky-500 px-5 py-2 text-sm font-semibold text-slate-950 transition hover:bg-sky-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-200/60 disabled:cursor-not-allowed disabled:opacity-60"
+                  className="gc-btn gc-btn-primary"
                 >
                   Cargar evento
                 </button>
@@ -742,7 +732,7 @@ export default function CreateBirthdayEventButton({
 
             {pendingCreate ? (
               <div className="fixed inset-0 z-[75] flex items-center justify-center bg-slate-950/65 p-4 backdrop-blur-[1.5px]">
-                <div className="w-full max-w-md rounded-2xl border border-sky-200/20 bg-[linear-gradient(140deg,rgba(15,23,42,0.9)_0%,rgba(15,23,42,0.78)_100%)] p-5 text-slate-100 shadow-[0_28px_60px_rgba(2,8,23,0.55)] backdrop-blur-md">
+                <div className="gc-panel w-full max-w-md !p-5 text-slate-100">
                   <h3 className="text-lg font-bold text-slate-100">
                     Confirmar carga de evento
                   </h3>
@@ -759,7 +749,7 @@ export default function CreateBirthdayEventButton({
                       type="button"
                       onClick={cancelCreateConfirmation}
                       disabled={isSaving}
-                      className="inline-flex rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm font-semibold text-slate-100 transition hover:bg-white/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-200/60 disabled:cursor-not-allowed disabled:opacity-60"
+                      className="gc-btn gc-btn-ghost"
                     >
                       Cancelar
                     </button>
@@ -769,7 +759,7 @@ export default function CreateBirthdayEventButton({
                         void confirmCreateEvent();
                       }}
                       disabled={isSaving}
-                      className="inline-flex rounded-full bg-sky-500 px-4 py-2 text-sm font-semibold text-slate-950 transition hover:bg-sky-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-200/60 disabled:cursor-not-allowed disabled:opacity-60"
+                      className="gc-btn gc-btn-primary"
                     >
                       {isSaving ? "Cargando..." : "Sí, cargar evento"}
                     </button>

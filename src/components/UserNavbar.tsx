@@ -342,7 +342,7 @@ export default function UserNavbar({
           onClick={() => {
             setIsMenuOpen((current) => !current);
           }}
-          className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-sky-200/40 bg-[linear-gradient(160deg,rgba(56,189,248,0.28)_0%,rgba(30,58,138,0.38)_100%)] text-sm font-bold text-sky-100 shadow-[0_10px_24px_rgba(2,8,23,0.42)] transition hover:bg-sky-400/34 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-200/65"
+          className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[#e7c17d]/45 bg-[linear-gradient(160deg,rgba(56,189,248,0.28)_0%,rgba(30,58,138,0.38)_100%)] text-sm font-bold text-sky-100 shadow-[0_10px_24px_rgba(2,8,23,0.42)] transition hover:bg-sky-400/34 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-200/65"
         >
           {avatarLabel}
         </button>

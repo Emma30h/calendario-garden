@@ -17,16 +17,7 @@ export default async function DashboardClientAccessPage() {
   return (
     <main className="min-h-screen bg-transparent px-4 py-10 sm:px-6">
       <div className="mx-auto w-full max-w-6xl space-y-6">
-        <header className="relative z-40 overflow-visible rounded-3xl border border-white/25 bg-[linear-gradient(140deg,rgba(15,23,42,0.66)_0%,rgba(15,23,42,0.42)_100%)] p-6 shadow-[0_24px_52px_rgba(2,8,23,0.45)] backdrop-blur-md sm:p-8">
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute -right-20 -top-24 h-56 w-56 rounded-full bg-sky-300/18 blur-3xl"
-          />
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute -left-24 -bottom-28 h-56 w-56 rounded-full bg-indigo-300/10 blur-3xl"
-          />
-
+        <header className="gc-panel relative z-40 !overflow-visible !p-6 sm:!p-8">
           <div className="relative z-[150] flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
             <div>
               <SectionBreadcrumb
@@ -39,7 +30,8 @@ export default async function DashboardClientAccessPage() {
               <h1 className="mt-2 text-3xl font-bold text-slate-100 sm:text-4xl">
                 Acceso cliente
               </h1>
-              <p className="mt-1 text-sm text-slate-300/90">
+              <div className="gc-divider-gold mt-2" />
+              <p className="mt-2 text-sm text-slate-300/90">
                 Comparte el link y QR fijo para ingreso con permisos limitados.
               </p>
             </div>

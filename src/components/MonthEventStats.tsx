@@ -442,9 +442,9 @@ export default function MonthEventStats({
   if (state.isLoading && !state.stats) {
     return (
       <section
-        className={`rounded-2xl border border-white/20 bg-black/20 p-5 shadow-xl shadow-black/30 backdrop-blur-sm sm:p-6 ${className}`}
+        className={`rounded-2xl border border-black/10 bg-white p-5 shadow-lg shadow-black/5 sm:p-6 ${className}`}
       >
-        <p className="text-sm font-semibold uppercase tracking-wide text-slate-300/75">
+        <p className="text-sm font-semibold uppercase tracking-wide text-black/45">
           Estadísticas del mes
         </p>
         <div className="mt-4 grid gap-3 sm:grid-cols-2 xl:grid-cols-3">

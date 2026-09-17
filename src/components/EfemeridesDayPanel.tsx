@@ -588,18 +588,9 @@ export default function EfemeridesDayPanel({
   return (
     <>
       <aside
-        className={`relative z-20 w-full overflow-visible rounded-[1.75rem] border border-white/25 bg-[linear-gradient(140deg,rgba(15,23,42,0.66)_0%,rgba(15,23,42,0.42)_100%)] p-4 shadow-[0_22px_42px_rgba(2,8,23,0.4)] backdrop-blur-md sm:p-5 lg:flex lg:min-h-0 lg:max-h-[var(--day-panel-max-height)] lg:flex-col ${className}`}
+        className={`gc-panel relative z-20 w-full !overflow-visible !p-4 sm:!p-5 lg:flex lg:min-h-0 lg:max-h-[var(--day-panel-max-height)] lg:flex-col ${className}`}
         style={style}
       >
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute -right-14 -top-16 h-40 w-40 rounded-full bg-sky-300/18 blur-3xl"
-        />
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute -left-20 -bottom-24 h-48 w-48 rounded-full bg-indigo-300/10 blur-3xl"
-        />
-
         <div className="relative z-40 flex items-center justify-between gap-3">
           <h3 className="shrink-0 pl-1 text-sm font-bold uppercase tracking-[0.08em] text-slate-100">
             Eventos del día
@@ -815,7 +806,7 @@ export default function EfemeridesDayPanel({
 
       {isPreviewModalOpen ? (
         <div className="fixed inset-0 z-[170] flex items-center justify-center bg-black/45 p-4">
-          <div className="w-full max-w-3xl rounded-2xl border border-white/20 bg-[linear-gradient(140deg,rgba(15,23,42,0.86)_0%,rgba(15,23,42,0.74)_100%)] p-5 text-slate-100 shadow-[0_28px_60px_rgba(2,8,23,0.55)] backdrop-blur-md">
+          <div className="gc-panel w-full max-w-3xl !rounded-2xl !p-5 text-slate-100">
             <h3 className="text-lg font-bold text-slate-100">Vista previa de descarga</h3>
             <p className="mt-2 text-sm text-slate-300/85">
               Se va a descargar una imagen PNG con el listado de eventos del día tal
@@ -882,7 +873,7 @@ export default function EfemeridesDayPanel({
                 type="button"
                 onClick={closeDownloadPreview}
                 disabled={isDownloadingImage || isPreparingPreview}
-                className="inline-flex rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm font-semibold text-slate-100 transition hover:bg-white/15 disabled:cursor-not-allowed disabled:opacity-60"
+                className="gc-btn gc-btn-ghost"
               >
                 Cancelar
               </button>
@@ -892,7 +883,7 @@ export default function EfemeridesDayPanel({
                   void handleConfirmDownload();
                 }}
                 disabled={isDownloadingImage || isPreparingPreview || !downloadPreview}
-                className="relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-sky-500 px-4 py-2 text-sm font-semibold text-slate-950 transition hover:bg-sky-400 disabled:cursor-not-allowed disabled:opacity-60"
+                className="gc-btn gc-btn-primary relative overflow-hidden"
               >
                 {isDownloadingImage ? (
                   <span

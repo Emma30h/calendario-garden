@@ -116,7 +116,7 @@ export default function AdminUsersManager() {
 
   return (
     <div className="space-y-6">
-      <section className="rounded-2xl border border-white/15 bg-white/8 p-4 shadow-[0_10px_24px_rgba(2,8,23,0.28)] backdrop-blur-sm sm:p-5">
+      <section className="gc-panel gc-panel--compact relative z-10">
         <button
           type="button"
           onClick={() => setIsOpen((current) => !current)}

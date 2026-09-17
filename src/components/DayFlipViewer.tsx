@@ -586,16 +586,7 @@ export default function DayFlipViewer({
   return (
     <main className="min-h-screen touch-pan-y overflow-y-auto bg-transparent px-4 py-4 sm:py-6 lg:py-4">
       <div className="mx-auto flex w-full max-w-7xl flex-col gap-3 sm:gap-4 lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(21rem,24rem)] lg:items-start">
-        <header className="relative mx-auto w-[calc(100%-1rem)] max-w-3xl overflow-hidden rounded-3xl border border-white/25 bg-[linear-gradient(140deg,rgba(15,23,42,0.66)_0%,rgba(15,23,42,0.42)_100%)] px-4 py-3 shadow-[0_24px_52px_rgba(2,8,23,0.45)] backdrop-blur-md sm:w-full sm:px-6 sm:py-4 lg:col-span-2 lg:mx-0 lg:w-auto lg:max-w-none">
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute -right-20 -top-20 h-48 w-48 rounded-full bg-sky-300/18 blur-3xl"
-          />
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute -left-20 -bottom-20 h-48 w-48 rounded-full bg-indigo-300/10 blur-3xl"
-          />
-
+        <header className="gc-panel relative mx-auto w-[calc(100%-1rem)] max-w-3xl !px-4 !py-3 sm:w-full sm:!px-6 sm:!py-4 lg:col-span-2 lg:mx-0 lg:w-auto lg:max-w-none">
           <SectionBreadcrumb
             items={[
               { label: "Calendario anual", href: "/anual" },
@@ -607,18 +598,9 @@ export default function DayFlipViewer({
         </header>
         <section
           ref={calendarSectionRef}
-          className="relative mx-auto w-[calc(100%-1rem)] max-w-3xl shrink-0 overflow-hidden rounded-[2rem] border border-white/25 bg-[linear-gradient(145deg,rgba(15,23,42,0.66)_0%,rgba(15,23,42,0.42)_100%)] pb-5 pt-12 shadow-[0_24px_52px_rgba(2,8,23,0.45)] backdrop-blur-md sm:w-full sm:pb-8 sm:pt-[3.75rem] lg:mx-auto lg:flex lg:flex-col lg:pb-6 lg:pt-16"
+          className="gc-panel relative mx-auto w-[calc(100%-1rem)] max-w-3xl shrink-0 !rounded-[2rem] !px-0 !pb-5 !pt-12 sm:w-full sm:!pb-8 sm:!pt-[3.75rem] lg:mx-auto lg:flex lg:flex-col lg:!pb-6 lg:!pt-16"
         >
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute -right-16 -top-20 h-52 w-52 rounded-full bg-sky-300/18 blur-3xl"
-          />
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute -left-20 -bottom-24 h-56 w-56 rounded-full bg-indigo-300/10 blur-3xl"
-          />
-
-          <div className="absolute inset-x-0 top-0 h-12 rounded-t-[2rem] bg-[linear-gradient(90deg,rgba(186,230,253,0.38)_0%,rgba(147,197,253,0.2)_100%)]" />
+          <div className="absolute inset-x-0 top-0 h-12 rounded-t-[2rem] bg-[linear-gradient(90deg,rgba(231,193,125,0.4)_0%,rgba(147,197,253,0.22)_100%)]" />
           <div className="absolute inset-x-0 top-3 z-30 flex justify-center gap-6">
             {Array.from({ length: 6 }).map((_, index) => (
               <span

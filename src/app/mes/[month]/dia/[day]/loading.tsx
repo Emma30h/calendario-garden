@@ -1,15 +1,6 @@
 ﻿function DayHeaderSkeleton() {
   return (
-    <header className="relative mx-auto w-[calc(100%-1rem)] max-w-3xl overflow-hidden rounded-3xl border border-white/25 bg-[linear-gradient(140deg,rgba(15,23,42,0.66)_0%,rgba(15,23,42,0.42)_100%)] px-4 py-3 shadow-[0_24px_52px_rgba(2,8,23,0.45)] backdrop-blur-md sm:w-full sm:px-6 sm:py-4 lg:col-span-2 lg:mx-0 lg:w-auto lg:max-w-none">
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -right-20 -top-20 h-48 w-48 rounded-full bg-sky-300/18 blur-3xl"
-      />
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -left-20 -bottom-20 h-48 w-48 rounded-full bg-indigo-300/10 blur-3xl"
-      />
-
+    <header className="gc-panel relative mx-auto w-[calc(100%-1rem)] max-w-3xl !px-4 !py-3 sm:w-full sm:!px-6 sm:!py-4 lg:col-span-2 lg:mx-0 lg:w-auto lg:max-w-none">
       <div className="relative flex items-center gap-2">
         <span className="auth-skeleton h-4 w-40 rounded" />
         <span className="auth-skeleton h-4 w-2 rounded" />
@@ -23,13 +14,13 @@
 
 function DayNotebookSkeleton() {
   return (
-    <section className="relative mx-auto w-[calc(100%-1rem)] max-w-3xl rounded-[2rem] border border-black/10 bg-[#fffdf6] pb-7 pt-14 shadow-2xl shadow-black/10 sm:w-full sm:pb-8 sm:pt-[3.75rem] lg:mx-auto lg:flex lg:flex-col lg:pb-6 lg:pt-16">
-      <div className="absolute inset-x-0 top-0 h-12 rounded-t-[2rem] bg-[#dbe6ce]" />
+    <section className="gc-panel relative mx-auto w-[calc(100%-1rem)] max-w-3xl shrink-0 !rounded-[2rem] !px-0 !pb-5 !pt-12 sm:w-full sm:!pb-8 sm:!pt-[3.75rem] lg:mx-auto lg:flex lg:flex-col lg:!pb-6 lg:!pt-16">
+      <div className="absolute inset-x-0 top-0 h-12 rounded-t-[2rem] bg-[linear-gradient(90deg,rgba(231,193,125,0.4)_0%,rgba(147,197,253,0.22)_100%)]" />
       <div className="absolute inset-x-0 top-3 z-30 flex justify-center gap-6">
         {Array.from({ length: 6 }).map((_, index) => (
           <span
             key={index}
-            className="h-6 w-4 rounded-b-full border-2 border-black/20 bg-white"
+            className="h-6 w-4 rounded-b-full border-2 border-white/45 bg-white/90"
           />
         ))}
       </div>
@@ -38,7 +29,7 @@ function DayNotebookSkeleton() {
         <span className="auth-skeleton absolute top-1/2 left-0 z-30 inline-flex h-11 w-11 -translate-y-1/2 rounded-full lg:left-4" />
         <span className="auth-skeleton absolute top-1/2 right-0 z-30 inline-flex h-11 w-11 -translate-y-1/2 rounded-full lg:right-4" />
 
-        <div className="mx-auto w-full max-w-[44rem] rounded-[1.75rem] border border-white/20 bg-black/20 p-8 shadow-xl shadow-black/30 backdrop-blur-sm">
+        <div className="mx-auto w-full max-w-[44rem] rounded-[1.75rem] border border-slate-200/50 bg-[linear-gradient(180deg,rgba(255,255,255,0.98)_0%,rgba(234,243,255,0.95)_100%)] p-8 shadow-[0_18px_32px_rgba(2,8,23,0.22)]">
           <div className="auth-skeleton mx-auto h-11 w-56 rounded" />
           <div className="auth-skeleton mx-auto mt-5 h-32 w-40 rounded sm:h-40 sm:w-48" />
         </div>
@@ -54,7 +45,7 @@ function DayNotebookSkeleton() {
 
 function DayEventsSkeleton() {
   return (
-    <aside className="mx-auto w-[calc(100%-1rem)] min-h-[16rem] rounded-[1.75rem] border border-white/20 bg-black/20 p-4 shadow-xl shadow-black/30 backdrop-blur-sm sm:w-full sm:p-5">
+    <aside className="gc-panel mx-auto w-[calc(100%-1rem)] min-h-[16rem] !p-4 sm:w-full sm:!p-5">
       <div className="auth-skeleton h-4 w-36 rounded" />
 
       <ul className="mt-3 space-y-2 pr-1">
